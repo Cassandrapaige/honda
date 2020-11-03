@@ -1,9 +1,9 @@
 import React from 'react'
-import {useSpring, config} from 'react-spring'
+import {useSpring} from 'react-spring'
 
 import {AnimatedContainer} from './animate.styles'
 
-const Animated = ({active, children, delay = "0"}) => {
+const Animated = ({children, delay = "0"}) => {
     const props = useSpring({
         from : {
             opacity: 0,
@@ -16,7 +16,7 @@ const Animated = ({active, children, delay = "0"}) => {
     });
 
     return (
-    <AnimatedContainer active = {active} style = {props} delay = {delay}>
+    <AnimatedContainer style = {props} delay = {delay}>
         {children}
     </AnimatedContainer>
 )}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTransition, animated, config } from 'react-spring'
+import { useTransition, config } from 'react-spring'
 import { images } from '../../constants/images'
 
 import useCarousel from '../../hooks/useCarousel'
@@ -10,13 +10,13 @@ import SliderControls from '../slider-controls/slider-controls.component'
 import Animated from '../animate/animate.component'
 import Title from '../title/title.component'
 
-import {HeaderWrapper, SlideContainer, SlideUp} from './header.styles'
+import {HeaderWrapper, SlideContainer} from './header.styles'
 import CtaButton from '../cta-button/cta-button.component'
 
 const { headerImage1, headerImage2, headerImage3 } = images;
 
 const Header = () => {
-    const [activeLink, setActiveLink] = useCarousel(SLIDES, 10000);
+    const [activeLink, setActiveLink] = useCarousel(SLIDES, 8000);
     const handleClick = id => setActiveLink(id);
 
     const transitions = useTransition(SLIDES[activeLink], item => item.id, {
@@ -28,28 +28,25 @@ const Header = () => {
 
     return (
         <HeaderWrapper>
-        {transitions.map(({ item, props }) => {
-            const active = item.id === activeLink;
-
-            return (
+            {transitions.map(({ item, props }) => (
                 <SlideContainer
                     key = {item.id}
                     image = {item.img}
                     style = {props}>
 
                     <OverlayContainer style= {styles.overlay}>
-                        <Animated active= {active}>
-                            <AccentTitle active= {active}>{item.tagline}</AccentTitle>
+                        <Animated>
+                            <AccentTitle>{item.tagline}</AccentTitle>
                         </Animated>
-                        <Animated active= {active} delay = ".5">
-                            <Title>{item.title}</Title>                       
+                        <Animated delay = ".5">
+                            <Title isHeading>{item.title}</Title>                       
                         </Animated>
-                        <Animated active= {active} delay = "1">
+                        <Animated delay = "1">
                             <CtaButton text = {item.btn} />
                         </Animated>
                     </OverlayContainer>
                 </SlideContainer>
-        )})}
+        ))}
 
         <SliderControls 
           slides = {SLIDES} 
