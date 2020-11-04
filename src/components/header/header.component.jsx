@@ -34,7 +34,7 @@ const Header = () => {
                     image = {item.img}
                     style = {props}>
 
-                    <OverlayContainer style= {styles.overlay}>
+                    <OverlayContainer dark style= {styles.overlay}>
                         <Animated>
                             <AccentTitle>{item.tagline}</AccentTitle>
                         </Animated>

@@ -20,7 +20,15 @@ ${({active}) => active && css`
 `
 
 export const Links = styled.section`
+display: flex;
+justify-content: space-between;
+align-items: center;
 
+#cart-icon {
+  width: 25px;
+  margin-left: 20px;
+  cursor: pointer;
+}
 `
 
 export const NavLink = styled(Link)`
@@ -30,6 +38,7 @@ color: ${colors.text};
 font-size: 1.1rem;
 position: relative;
 font-weight: 300;
+cursor: pointer;
 
 &:before {
   position: absolute;
@@ -62,4 +71,7 @@ ${({cta}) => cta && css`
 
 export const Logo = styled.div`
 width: 50px;
+display: flex;
+justify-content: space-between;
+align-items: center;
 `

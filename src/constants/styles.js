@@ -1,9 +1,10 @@
 export const colors = {
     primary: '#151414',
+    secondary: '#171616',
     complimentary: '#1a1818',
     accent: '#D60C19',
     text: '#c0c0c0',
-    overlay: 'rgba(18, 18, 18, .9)'
+    overlay: percent => `rgba(18, 18, 18, ${percent})`
 }
 
 export const easings = {

@@ -2,7 +2,9 @@ import React from 'react'
 
 import {NavbarContainer, Links, NavLink, Logo} from './navbar.styles'
 
-const Navbar = ({...rest}) => {
+import cartIcon from '../../images/cart.svg'
+
+const Navbar = ({handleClick, ...rest}) => {
     return (
         <NavbarContainer {...rest}>
             <Logo>
@@ -11,9 +13,10 @@ const Navbar = ({...rest}) => {
             <Links>
             {
                 LINKS.map(link => (
-                    <NavLink to = {link.href} cta = {link.cta}>{link.text}</NavLink>
+                    <NavLink to = {link.href} key = {link.id}  cta = {link.cta}>{link.text}</NavLink>
                 ))
             }
+                <img src = {cartIcon} alt = "cart icon" id = "cart-icon" onClick = {handleClick}/>
             </Links>
         </NavbarContainer>
     )

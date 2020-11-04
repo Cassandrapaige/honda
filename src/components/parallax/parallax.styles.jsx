@@ -10,4 +10,5 @@ background-image: ${({image}) => `url(${image})`};
 background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
+background-position: center;
 `

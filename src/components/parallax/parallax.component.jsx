@@ -6,7 +6,7 @@ import Container from '../container/container.component'
 
 const Parralax = ({children, ...rest}) => (
     <FixedContainer {...rest}>
-        <OverlayContainer style= {styles.overlay}>
+        <OverlayContainer dark style= {styles.overlay}>
             <Container>
                 {children}
             </Container>
