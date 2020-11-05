@@ -12,7 +12,7 @@ import {AppStateProvider} from './providers/app.provider'
 
 const App = () => {
   const scrollY = useScroll();
-
+  
   return (
      <AppStateProvider>
       <BrowserRouter>

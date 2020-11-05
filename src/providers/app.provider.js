@@ -11,8 +11,9 @@ export const useAppState = () => {
 
 const INITIAL_STATE = {
     stock: STOCK,
+    filteredStockList: STOCK,
     cartItems: [],
-    hidden: true
+    hidden: true,
 }
 
 const appStateReducer = (state, action) => {
@@ -50,7 +51,14 @@ const appStateReducer = (state, action) => {
         case "GET_LOCAL_STATE": {
             return {
                 ...state,
-                cartItems: action.payload
+                cartItems: action.payload,
+            }
+        }
+        case "FILTER_STOCK_BY_CATEGORY" : {
+            return {
+                ...state,
+                filteredStockList: state.stock.filter(item => 
+                    item.category.includes(action.filter))
             }
         }
         default: 

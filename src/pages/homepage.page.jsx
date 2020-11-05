@@ -6,17 +6,13 @@ import Title from '../components/title/title.component'
 import Text from '../components/text/text.component'
 import Carousel from '../components/carousel/carousel.component'
 import FadeInContainer from '../components/fade-in-container/fade-in-container.component'
-import ProductCard from '../components/product-card/product-card.component'
 import Gallery from '../components/gallery/gallery.component'
-import FilterHeader from '../components/filter-header/filter-header.component'
+import ProductContainer from '../components/product-container/product-container.component'
 
 import useLocal from '../hooks/useLocal'
 
-import {useAppState} from '../providers/app.provider'
-
 const Homepage = () => {
     useLocal();
-    const [{stock}, dispatch] = useAppState();
 
     return (
         <div>
@@ -47,19 +43,7 @@ const Homepage = () => {
                     <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aut aperiam necessitatibus eius odit voluptas commodi maiores et quisquam blanditiis.</Text>
                 </FadeInContainer>
             </Parralax>
-            <div>
-                <FilterHeader />
-                <div className="product-container">
-                {
-                    stock.map(product => (
-                        <ProductCard
-                            key = {product.id} 
-                            product = {product} 
-                            currency = "$" />
-                    ))
-                }
-                </div>
-            </div>
+            <ProductContainer />
 
             <Parralax image = 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2020/Civic-Si-Coupe/NON-VLP/Civic-Family-Page/Civic_Family_Hero_Mobile_375.jpg%202x'>
                 <FadeInContainer>
