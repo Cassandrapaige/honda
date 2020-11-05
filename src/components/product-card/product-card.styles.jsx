@@ -35,14 +35,6 @@ margin-bottom: 10px;
 
 export const PricingContainer = styled.div`
 padding-bottom: 30px;
-
-span {
-    font-weight: 200;
-}
-
-h3 {
-    font-weight: 400;
-}
 `
 
 export const AddToCartBtn = styled.button`

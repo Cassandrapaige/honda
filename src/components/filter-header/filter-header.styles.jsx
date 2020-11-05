@@ -17,7 +17,7 @@ z-index: 20;
 `
 
 export const FilterMenuItem = styled.div`
-padding: 20px 20px;
+padding: 20px;
 border-right: 1px solid ${colors.complimentary};
 cursor: pointer;
 font-size: 1.1rem;

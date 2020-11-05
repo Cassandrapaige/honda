@@ -9,8 +9,23 @@ import {ProductCardContainer,
     } from './product-card.styles'
 
 import OverlayContainer from '../overlay-container/overlay-container.component'
+import Text from '../text/text.component'
+
+import {useAppState} from '../../providers/app.provider'
 
 const ProductCard = ({currency, product}) => {
+    const [{}, dispatch] = useAppState();
+
+    const addToCart = item => {
+        dispatch({
+            type: "ADD_TO_CART",
+            payload: item
+        });
+        dispatch({
+            type: "TOGGLE_CART_HIDDEN"
+        });
+    }
+
     return (
         <ProductCardContainer>
             <ProductImage>
@@ -22,15 +37,15 @@ const ProductCard = ({currency, product}) => {
                 <CarModelTitle>{product.year} {product.model}</CarModelTitle>
 
                 <PricingContainer>
-                    <span>Weekly Lease</span>
-                    <h3>{currency}{product.price.weekly}</h3>
+                    <Text>Weekly Lease</Text>
+                    <Text>{currency}{product.price.weekly}</Text>
                 </PricingContainer>
                 <PricingContainer>
-                    <span>Selling Price</span>
-                    <h3>{currency}{product.price.total}</h3>
+                    <Text>Selling Price</Text>
+                    <Text>{currency}{product.price.total}</Text>
                 </PricingContainer>
             </ProductOverview>
-                <AddToCartBtn>Add to Cart</AddToCartBtn>
+                <AddToCartBtn onClick = {() => addToCart(product)}>Add to Cart</AddToCartBtn>
         </ProductCardContainer>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import './App.scss';
@@ -8,32 +8,23 @@ import ShoppingCart from './components/shopping-cart/shopping-cart.component'
 
 import useScroll from './hooks/useScroll';
 
+import {AppStateProvider} from './providers/app.provider'
+
 const App = () => {
   const scrollY = useScroll();
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  // prevent body element from scrolling when Cart is open
-  const handleClick = () => {
-    if(!isOpen) {
-      document.body.style.overflow = "hidden";
-      setIsOpen(true);
-    } else {
-      setIsOpen(false);
-      document.body.style.overflow = "visible";
-    }
-  }
-
   return (
+     <AppStateProvider>
       <BrowserRouter>
         <div className="App">
-          <Navbar active = {scrollY > 200} handleClick = {handleClick}/>
-          <ShoppingCart handleClick = {handleClick} isOpen = {isOpen}/>
+          <Navbar active = {scrollY > 200}/>
+          <ShoppingCart/>
           <Switch>
               <Route exact path = '/' component = { Homepage } />
           </Switch>
         </div>
       </BrowserRouter>
+      </AppStateProvider>
   );
 }
 

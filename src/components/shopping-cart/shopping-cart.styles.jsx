@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import {colors} from '../../constants/styles'
 import {animated} from 'react-spring'
 
-export const OverlayContainer = styled(animated.section)`
+export const OverlayContainer = styled(animated.div)`
 position: fixed;
 top: 0;
 width: 100vw;
@@ -10,9 +10,10 @@ height: 100vh;
 background: ${colors.overlay(.9)};
 z-index: 1999;
 cursor: pointer;
+left: 0;
 `
 
-export const CartContainer = styled.div`
+export const CartContainer = styled(animated.section)`
 height: 100vh;
 position: fixed;
 top: 0px;
@@ -21,6 +22,12 @@ right: 0;
 width: 450px;
 z-index: 2000;
 overflow: scroll;
+padding: 50px 10px;
+color: ${colors.text};
+
+@media(max-width: 550px) {
+    width: 100%;
+}
 `
 
 export const CloseIcon = styled.div`

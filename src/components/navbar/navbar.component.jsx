@@ -4,7 +4,18 @@ import {NavbarContainer, Links, NavLink, Logo} from './navbar.styles'
 
 import cartIcon from '../../images/cart.svg'
 
-const Navbar = ({handleClick, ...rest}) => {
+import {useAppState} from '../../providers/app.provider'
+
+const Navbar = ({...rest}) => {
+    const [{hidden}, dispatch] = useAppState();
+
+    const toggleCartHidden = () => {
+        dispatch({
+            type: "TOGGLE_CART_HIDDEN"
+        })
+    }
+
+
     return (
         <NavbarContainer {...rest}>
             <Logo>
@@ -16,7 +27,12 @@ const Navbar = ({handleClick, ...rest}) => {
                     <NavLink to = {link.href} key = {link.id}  cta = {link.cta}>{link.text}</NavLink>
                 ))
             }
-                <img src = {cartIcon} alt = "cart icon" id = "cart-icon" onClick = {handleClick}/>
+                <img 
+                    src = {cartIcon} 
+                    alt = "cart icon" 
+                    id = "cart-icon" 
+                    onClick = {() => toggleCartHidden()}
+                />
             </Links>
         </NavbarContainer>
     )

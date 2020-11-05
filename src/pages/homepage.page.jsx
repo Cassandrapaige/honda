@@ -1,7 +1,5 @@
 import React from 'react'
 
-import {STOCK} from '../constants/data'
-
 import Header from '../components/header/header.component'
 import Parralax from '../components/parallax/parallax.component'
 import Title from '../components/title/title.component'
@@ -10,15 +8,21 @@ import Carousel from '../components/carousel/carousel.component'
 import FadeInContainer from '../components/fade-in-container/fade-in-container.component'
 import ProductCard from '../components/product-card/product-card.component'
 import Gallery from '../components/gallery/gallery.component'
-import OverlayContainer from '../components/overlay-container/overlay-container.component'
 import FilterHeader from '../components/filter-header/filter-header.component'
 
+import useLocal from '../hooks/useLocal'
+
+import {useAppState} from '../providers/app.provider'
+
 const Homepage = () => {
+    useLocal();
+    const [{stock}, dispatch] = useAppState();
+
     return (
         <div>
             <Header />
             <Carousel 
-                title = 'Explore the 2020 & 2021 Lineup of New Honda Vehicles'
+                title = "Explore the 2020 & 2021 Lineup of New Honda Vehicles"
                 slideNum = {DATA.length} 
                 inView = '3'>
                 {
@@ -27,7 +31,7 @@ const Homepage = () => {
                        <div className="item">
                             <img src={el.image} alt=""/>
                             <h3>{el.title}</h3>
-                            <p>{el.text}</p>
+                            <Text>{el.text}</Text>
 
                             <a href = {el.link}>Learn More</a>
                         </div>
@@ -37,28 +41,29 @@ const Homepage = () => {
             </Carousel>
             <Parralax image = 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/SHOP-Family-Pages/Clarity/New/Hero-Mobile-375-MY20-2x.jpg%202x'>
                 <FadeInContainer>
-                    <Title>Explore the 2020 & 2021 Lineup of New Honda Vehicles</Title>
+                    <Title>Honda Canada: Coupes, Sedans, Hatchbacks, SUVs, Cross-Overs, Minivans & Hybrids</Title>
                 </FadeInContainer>
                 <FadeInContainer>
                     <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aut aperiam necessitatibus eius odit voluptas commodi maiores et quisquam blanditiis.</Text>
                 </FadeInContainer>
             </Parralax>
-
             <div>
                 <FilterHeader />
-            <div className="product-container">
-            {
-                STOCK.map(product => (
-                    <ProductCard key = {product.id} product = {product} currency = "$"/>
-                ))
-            }
+                <div className="product-container">
+                {
+                    stock.map(product => (
+                        <ProductCard
+                            key = {product.id} 
+                            product = {product} 
+                            currency = "$" />
+                    ))
+                }
+                </div>
             </div>
-            </div>
-
 
             <Parralax image = 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2020/Civic-Si-Coupe/NON-VLP/Civic-Family-Page/Civic_Family_Hero_Mobile_375.jpg%202x'>
                 <FadeInContainer>
-                    <Title>Explore the 2020 & 2021 Lineup of New Honda Vehicles</Title>
+                    <Title>Built in Canada -- and it shows</Title>
                 </FadeInContainer>
                 <FadeInContainer>
                     <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aut aperiam necessitatibus eius odit voluptas commodi maiores et quisquam blanditiis.</Text>
@@ -76,7 +81,7 @@ const Homepage = () => {
                             <img src={el.image} alt=""/>
 
                             <h3>{el.title}</h3>
-                            <p>{el.text}</p>
+                            <Text>{el.text}</Text>
 
                             <a href = {el.link}>Learn More</a>
                         </div>
