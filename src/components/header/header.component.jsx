@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useTransition, config } from 'react-spring'
 import { images } from '../../constants/images'
 
@@ -17,12 +17,21 @@ const { headerImage1, headerImage2, headerImage3 } = images;
 
 const Header = () => {
     const [activeLink, setActiveLink] = useCarousel(SLIDES, 8000);
-    const handleClick = id => setActiveLink(id);
+
+    const handleClick = id => {
+        setActiveLink(id);
+    };
 
     const transitions = useTransition(SLIDES[activeLink], item => item.id, {
-        from: {transform: `translateX(-100%)`},
-        enter: {transform: `translateX(0)`},
-        leave: {transform: `translateX(100%)`},
+        from: {
+            transform: `translateX(-100%)`
+        },
+        enter: {
+            transform: `translateX(0)`
+        },
+        leave: {
+            transform: `translateX(100%)`
+        },
         config: config.default
     })
 

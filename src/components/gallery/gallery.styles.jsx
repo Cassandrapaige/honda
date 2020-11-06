@@ -8,6 +8,7 @@ grid-template-rows: repeat(3, 300px);
 gap: 20px;
 padding: 20px;
 background: ${colors.secondary};
+position: relative;
 `
 
 export const ImageContainer = styled.div`
@@ -15,16 +16,16 @@ position: relative;
 cursor: zoom-in;
 overflow: hidden;
 
-&:hover img {
+&:hover img{
     transform: scale(1.2);
 }
 
 img {
-    transition: all .5s ${easings.smooth};
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
+    transition: all .5s ${easings.smooth};
 }
 
 ${({spanTwo}) => spanTwo && css`

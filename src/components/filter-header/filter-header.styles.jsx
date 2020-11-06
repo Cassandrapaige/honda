@@ -6,6 +6,7 @@ grid-column: 1/-1;
 width: 100%;
 display: flex;
 justify-content: flex-end;
+align-items: center;
 border-bottom: 1px solid ${colors.complimentary};
 box-shadow: 0px 2px 2px ${colors.overlay(.2)};
 margin-bottom: 30px;

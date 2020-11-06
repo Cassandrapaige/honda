@@ -56,3 +56,15 @@ cursor: pointer;
     transform: translateX(-50%) rotate(-45deg);
 }
 `
+
+export const CartTotalsOverview = styled.section`
+padding: 50px 20px 50px 0;
+
+p {
+    margin: 5px 0;
+}
+`
+export const OverviewItem = styled.div`
+display: flex;
+justify-content: space-between;
+`

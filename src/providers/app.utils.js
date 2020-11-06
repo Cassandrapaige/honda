@@ -40,7 +40,15 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return cartItems.filter(cartItem => cartItem !== existingCartItem);
   }
 
-  export const toggleHidden = state => {
+  export const calculateQuantity = (state, selector) => {
+    return state.map(cartItem => cartItem[selector]).reduce((x, y) => x + y, 0)
+  }
+
+  export const addToLocalStorage = (items) => {
+    return localStorage.setItem("cart_items", JSON.stringify(items));
+  }
+
+  export const toggleHidden = (state ) => {
       if(state) {
         document.body.style.overflow = "hidden";
         return false;

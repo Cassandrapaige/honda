@@ -1,7 +1,6 @@
 import React from 'react'
 import { images } from '../../constants/images'
 
-import FadeInContainer from '../fade-in-container/fade-in-container.component'
 import OverlayContainer from '../overlay-container/overlay-container.component'
 import Title from '../title/title.component'
 import AccentTitle from '../accent-title/accent-title.component'
@@ -18,10 +17,8 @@ const Gallery = () => {
                     <ImageContainer spanTwo = {product.span}>
                         <img src = {product.image} alt = {product.name} />
                         <OverlayContainer style= {styles.overlay}>
-                            <FadeInContainer>
-                                <AccentTitle>{product.name}</AccentTitle>
-                                <Title>{product.year}</Title>
-                            </FadeInContainer>
+                            <AccentTitle>{product.name}</AccentTitle>
+                            <Title>{product.year}</Title>
                         </OverlayContainer>
                     </ImageContainer>
                 ))

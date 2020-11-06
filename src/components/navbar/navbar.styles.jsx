@@ -17,18 +17,18 @@ transition: all .5s ease;
 ${({active}) => active && css`
   background: ${colors.primary};
 `}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 `
 
 export const Links = styled.section`
 display: flex;
 justify-content: space-between;
 align-items: center;
-
-#cart-icon {
-  width: 25px;
-  margin-left: 20px;
-  cursor: pointer;
-}
 `
 
 export const NavLink = styled(Link)`
@@ -74,4 +74,25 @@ width: 50px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+`
+
+export const CartIcon = styled.div`
+width: 25px;
+margin-left: 20px;
+cursor: pointer;
+position: relative;
+`
+
+export const Counter = styled.div`
+position: absolute;
+width: 17px;
+height: 17px;
+background: ${colors.accent};
+right: -6px;
+top: -6px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 50%;
+font-size: .7rem;
 `

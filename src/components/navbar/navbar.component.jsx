@@ -1,20 +1,25 @@
 import React from 'react'
 
-import {NavbarContainer, Links, NavLink, Logo} from './navbar.styles'
+import {NavbarContainer, 
+        Links, 
+        NavLink, 
+        Logo, 
+        CartIcon,
+        Counter
+    } from './navbar.styles'
 
 import cartIcon from '../../images/cart.svg'
 
 import {useAppState} from '../../providers/app.provider'
 
 const Navbar = ({...rest}) => {
-    const [{hidden}, dispatch] = useAppState();
+    const [{quantity}, dispatch] = useAppState();
 
     const toggleCartHidden = () => {
         dispatch({
             type: "TOGGLE_CART_HIDDEN"
         })
     }
-
 
     return (
         <NavbarContainer {...rest}>
@@ -27,12 +32,11 @@ const Navbar = ({...rest}) => {
                     <NavLink to = {link.href} key = {link.id}  cta = {link.cta}>{link.text}</NavLink>
                 ))
             }
-                <img 
-                    src = {cartIcon} 
-                    alt = "cart icon" 
-                    id = "cart-icon" 
-                    onClick = {() => toggleCartHidden()}
-                />
+                <CartIcon onClick = {() => toggleCartHidden()}>
+                    <img src = {cartIcon} 
+                    alt = "cart icon" />
+                    <Counter>{quantity}</Counter>
+                </CartIcon>
             </Links>
         </NavbarContainer>
     )

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import FilterHeader from '../filter-header/filter-header.component'
 import ProductCard from '../product-card/product-card.component'
@@ -6,25 +6,24 @@ import ProductCard from '../product-card/product-card.component'
 import {useAppState} from '../../providers/app.provider'
 
 import {ProductGridContainer} from './product-container.styles'
+import FadeInContainer from '../fade-in-container/fade-in-container.component'
 
 const ProductContainer = () => {
-    const [{filteredStockList, combined}, dispatch] = useAppState();
-
-    console.log(combined)
+    const [{filteredList}] = useAppState();
 
     return (
-        <Fragment>
+        <div>
             <FilterHeader />
                 <ProductGridContainer>
                 {
-                    filteredStockList.map(product => (
-                        <ProductCard
-                            key = {product.id} 
-                            product = {product}/>
+                    filteredList.map(product => (
+                        <FadeInContainer>
+                            <ProductCard product = {product}/>
+                        </FadeInContainer>
                     ))
                 }
                 </ProductGridContainer>
-        </Fragment>
+        </div>
     )
 }
 

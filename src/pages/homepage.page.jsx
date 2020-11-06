@@ -8,7 +8,7 @@ import Carousel from '../components/carousel/carousel.component'
 import FadeInContainer from '../components/fade-in-container/fade-in-container.component'
 import Gallery from '../components/gallery/gallery.component'
 import ProductContainer from '../components/product-container/product-container.component'
-
+import CarouselItem from '../components/carousel-item/carousel-item.component'
 import useLocal from '../hooks/useLocal'
 
 const Homepage = () => {
@@ -20,18 +20,12 @@ const Homepage = () => {
             <Carousel 
                 title = "Explore the 2020 & 2021 Lineup of New Honda Vehicles"
                 slideNum = {DATA.length} 
-                inView = '3'>
+                inView = '2'>
                 {
                     DATA.map(el => (
-                    <FadeInContainer slidein = "true">
-                       <div className="item">
-                            <img src={el.image} alt=""/>
-                            <h3>{el.title}</h3>
-                            <Text>{el.text}</Text>
-
-                            <a href = {el.link}>Learn More</a>
-                        </div>
-                    </FadeInContainer>
+                        <FadeInContainer slidein>
+                            <CarouselItem data = {el} />
+                        </FadeInContainer>
                     ))
                 }
             </Carousel>
@@ -50,26 +44,19 @@ const Homepage = () => {
                     <Title>Built in Canada -- and it shows</Title>
                 </FadeInContainer>
                 <FadeInContainer>
-                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aut aperiam necessitatibus eius odit voluptas commodi maiores et quisquam blanditiis.</Text>
+                    <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore soluta natus possimus, quos est non, quas iusto, consequatur nobis voluptatum saepe eligendi explicabo fugit voluptates at distinctio quasi optio.</Text>
                 </FadeInContainer>
             </Parralax>
             <Gallery />
             <Carousel 
                 title = 'Explore the 2020 & 2021 Lineup of New Honda Vehicles'
                 slideNum = {DATA.length} 
-                inView = '2'>
+                inView = '3'>
                 {
                     DATA.map(el => (
-                       <FadeInContainer slidein>
-                       <div className="item">
-                            <img src={el.image} alt=""/>
-
-                            <h3>{el.title}</h3>
-                            <Text>{el.text}</Text>
-
-                            <a href = {el.link}>Learn More</a>
-                        </div>
-                       </FadeInContainer>
+                        <FadeInContainer slidein>
+                            <CarouselItem data = {el} />
+                        </FadeInContainer>
                     ))
                 }
             </Carousel>
@@ -80,31 +67,51 @@ const Homepage = () => {
 const DATA = [
     {
         id: 0,
-        title: 'Designed to Thrill',
-        text: 'The 2021 Civic Type R, in Limited Edition Phoenix Yellow.',
-        link: '/',
-        image: 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/SHOP-Family-Pages/Clarity/New/Hero-Mobile-375-MY20-2x.jpg%202x'
+        tagline: '2020 Passport',
+        title: 'The Adventurer',
+        background: 'https://wallup.net/wp-content/uploads/2015/12/153891-road-mountain-landscape.jpg',
+        car: 'https://images.jazelc.com/uploads/galpinhonda/12454_st1280_089.png',
+        features: [
+            'Active cruise with stop and go',
+            'Steering and lane control',
+            'Massage function for driver and passanger'
+        ]
     },
     {
         id: 1,
-        title: 'Build your Honda Today',
-        text: 'Build your Honda, Save It, Compare It, Send It and Contact your Quebec Honda Dealer Today.',
-        link: '/',
-        image: 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/SHOP-Family-Pages/Clarity/New/Hero-Mobile-375-MY20-2x.jpg%202x'
+        tagline: '2020 Passport',
+        title: 'The Adventurer',
+        background: 'https://jooinn.com/images/road-75.jpg',
+        car: 'https://www.cstatic-images.com/car-pictures/xl/usc90hos022d021001.png',
+        features: [
+            'Active cruise with stop and go',
+            'Steering and lane control',
+            'Massage function for driver and passanger'
+        ]
+    },
+    {
+        id: 2,
+        tagline: '2020 Passport',
+        title: 'The Adventurer',
+        background: 'https://images5.alphacoders.com/567/567118.jpg',
+        car: 'https://st.motortrend.com/uploads/sites/10/2017/09/2018-honda-hr-v-ex-suv-angular-front.png',
+        features: [
+            'Active cruise with stop and go',
+            'Steering and lane control',
+            'Massage function for driver and passanger'
+        ]
     },
     {
         id: 3,
-        title: 'Car Buying. The Couch Edition',
-        text: 'Build your dream Honda without ever leaving your home.',
-        link: '/',
-        image: 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/SHOP-Family-Pages/Clarity/New/Hero-Mobile-375-MY20-2x.jpg%202x'
-    },
-    {
-        id: 4,
-        title: 'Less Fuel. More Efficiency.',
-        text: 'Check out our innovative hybrid lineup.',
-        link: '/',
-        image: 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/SHOP-Family-Pages/Clarity/New/Hero-Mobile-375-MY20-2x.jpg%202x'
+        tagline: '2020 Passport',
+        title: 'The Adventurer',
+        background: 'https://images.wallpaperscraft.com/image/road_mountains_trees_123700_1920x1080.jpg',
+        car: 'https://images.jazelc.com/uploads/galpinhonda/12454_st1280_089.png',
+        features: [
+            'Active cruise with stop and go',
+            'Steering and lane control',
+            'Massage function for driver and passanger'
+        ]
     }
 ]
 

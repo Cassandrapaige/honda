@@ -1,40 +1,56 @@
-import React from 'react'
+import React, {Fragment, useRef} from 'react'
 
 import {FilterHeaderContainer, FilterMenuItem} from './filter-header.styles'
 
 import {useAppState} from '../../providers/app.provider'
+import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component';
 
 const FilterHeader = () => {
-    const [{}, dispatch] = useAppState();
+    const [{activeFilterLink}, dispatch] = useAppState();
+
+    const startOfList = useRef(null);
+
+    const handleClick = item => {
+
+        // make sure the list remains at top of container when filtering 
+        startOfList.current.scrollIntoView({ 
+            behavior: 'smooth'
+        });
+        dispatch({ 
+            type: "FILTER_STOCK_BY_CATEGORY", 
+            category: getFilterItem(item)[1],
+            active: getFilterItem(item)[0] 
+        });
+    }
 
     return (
-        <FilterHeaderContainer>
-            {
+        <Fragment>
+            <div ref = {startOfList}></div>
+            <FilterHeaderContainer>
+                {
                 FILTER_ITEMS.map((item, index) => (
                     <FilterMenuItem 
                         key = {index} 
-                        active = {index === 0}
-                        onClick = {() => dispatch({ 
-                            type: "FILTER_STOCK_BY_CATEGORY", 
-                            filter: getFilterItem(item) })}
-                    >{item}</FilterMenuItem>
-                ))
-            }
-        </FilterHeaderContainer>
+                        active = {index === activeFilterLink}
+                        onClick = {() => handleClick(item)}>{item}</FilterMenuItem>
+                    ))
+                }
+                <CurrencyDropdown />
+            </FilterHeaderContainer>
+        </Fragment>
     )
 }
 
-
 const getFilterItem = (item) => {
     switch(item) {
-        case "Cars": 
-            return "car";
-        case "Trucks & Minivans": 
-            return "trucks/minivan";
-        case "Hybrid & Electric":
-            return "hybrid/electric";
         case "All":
-            return "";
+            return [0, ""];
+        case "Cars": 
+            return [1, "car"];
+        case "Trucks & Minivans": 
+            return [2, "trucks/minivan"];
+        case "Hybrid & Electric":
+            return [3, "hybrid/electric"];
         default: 
             return "";
     }

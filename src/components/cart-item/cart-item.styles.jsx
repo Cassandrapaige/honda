@@ -14,7 +14,7 @@ margin: 10px 0;
 export const GridSectionContainer = styled.div`
 display: flex;
 flex-direction: column;
-padding: 10px 10px 10px 0px;
+padding: 1px;
 
 ${({rightAligned}) => rightAligned && css`
     flex-grow: 1;
@@ -23,6 +23,7 @@ ${({rightAligned}) => rightAligned && css`
 
 img {
     width: 150px;
+    margin: 10px;
 }
 `
 
@@ -33,8 +34,8 @@ span {
     border: 1px solid ${colors.text};
     padding: 0 10px;
     border-radius: 5px;
-    background: ${colors.text};
-    color: ${colors.primary};
+    background: ${colors.secondary};
+    color: ${colors.text};
     margin: 0 10px;
 }
 `
