@@ -7,14 +7,14 @@ display: flex;
 width: 100%;
 justify-content: space-between;
 align-items: center;
-background: ${colors.primary};
+background: ${colors.complimentary};
 margin: 10px 0;
 `
 
 export const GridSectionContainer = styled.div`
 display: flex;
 flex-direction: column;
-padding: 1px;
+padding: 10px;
 
 ${({rightAligned}) => rightAligned && css`
     flex-grow: 1;
@@ -22,8 +22,7 @@ ${({rightAligned}) => rightAligned && css`
 `}
 
 img {
-    width: 150px;
-    margin: 10px;
+    width: 120px;
 }
 `
 
@@ -34,8 +33,8 @@ span {
     border: 1px solid ${colors.text};
     padding: 0 10px;
     border-radius: 5px;
-    background: ${colors.secondary};
-    color: ${colors.text};
+    background: ${colors.text};
+    color: ${colors.primary};
     margin: 0 10px;
 }
 `

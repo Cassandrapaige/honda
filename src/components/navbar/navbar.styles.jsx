@@ -5,7 +5,7 @@ import {colors} from '../../constants/styles'
 export const NavbarContainer = styled.nav`
 z-index: 500;
 position: fixed;
-background: transparent;
+background: ${({active}) => active ? `${colors.primary}` : 'transparent'};
 width: 100%;
 top: 0;
 display: flex;
@@ -13,10 +13,6 @@ justify-content: space-between;
 align-items: center;
 padding: 20px 60px;
 transition: all .5s ease;
-
-${({active}) => active && css`
-  background: ${colors.primary};
-`}
 
 img {
   width: 100%;

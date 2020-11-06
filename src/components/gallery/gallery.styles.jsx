@@ -17,7 +17,7 @@ cursor: zoom-in;
 overflow: hidden;
 
 &:hover img{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 img {

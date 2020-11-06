@@ -6,20 +6,22 @@ import {CartItemContainer,
         ControlButton
     } from './cart-item.styles'
 
-import trash from '../../images/trash-can.svg'
+import trash from '../../images/trash.svg'
 
 import {useAppState} from '../../providers/app.provider'
+
+import {getLocaleNum} from '../../utils'
 
 import Text from '../text/text.component'
 
 const CartItem = ({cartItem}) => {
-    const [state, dispatch] = useAppState();
+    const [{currency, exchangeRate}, dispatch] = useAppState();
 
     const {
         image,
         model,
         quantity,
-        price
+        cartTotal,
     } = cartItem;
 
     const increaseQuantity = item => {
@@ -57,7 +59,7 @@ const CartItem = ({cartItem}) => {
                 </QuantityControls>
             </GridSectionContainer>
             <GridSectionContainer rightAligned = "true">
-                <Text>${price.total}</Text>
+                <span>{getLocaleNum(cartTotal, exchangeRate, currency)}</span>
                 <ControlButton onClick = {() => removeItem(cartItem)}> <img src={trash} alt="move to trash icon" /> </ControlButton>
             </GridSectionContainer>
         </CartItemContainer>

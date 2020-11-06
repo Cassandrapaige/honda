@@ -6,7 +6,7 @@ import {useAppState} from '../../providers/app.provider'
 import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component';
 
 const FilterHeader = () => {
-    const [{activeFilterLink}, dispatch] = useAppState();
+    const [{active}, dispatch] = useAppState();
 
     const startOfList = useRef(null);
 
@@ -31,11 +31,10 @@ const FilterHeader = () => {
                 FILTER_ITEMS.map((item, index) => (
                     <FilterMenuItem 
                         key = {index} 
-                        active = {index === activeFilterLink}
+                        active = {index === active}
                         onClick = {() => handleClick(item)}>{item}</FilterMenuItem>
                     ))
                 }
-                <CurrencyDropdown />
             </FilterHeaderContainer>
         </Fragment>
     )

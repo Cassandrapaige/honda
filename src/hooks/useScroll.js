@@ -8,7 +8,12 @@ const useScroll = () => {
             setScrollY(window.pageYOffset);
         };
       }
-    
+ 
+      useEffect(() => {
+        window.addEventListener('onload', getScrollPosition);
+        return () => window.removeEventListener('onload', getScrollPosition);
+    }, [scrollY]);
+
       useEffect(() => {
         window.addEventListener('scroll', getScrollPosition);
         return () => window.removeEventListener('scroll', getScrollPosition);

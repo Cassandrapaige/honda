@@ -12,7 +12,7 @@ box-shadow: 0px 2px 2px ${colors.overlay(.2)};
 margin-bottom: 30px;
 background: ${colors.primary};
 position: sticky;
-top: 75px;
+top: 82px;
 padding: 0 50px;
 z-index: 20;
 `

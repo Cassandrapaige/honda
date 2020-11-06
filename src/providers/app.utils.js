@@ -6,12 +6,18 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     if (existingCartItem) {
       return cartItems.map(cartItem =>
         cartItem.id === cartItemToAdd.id
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          ? { 
+            ...cartItem, 
+            quantity: cartItem.quantity + 1, 
+            cartTotal: cartItem.cartTotal + cartItem.price.total
+          }
           : cartItem
       );
     }
   
-    return [...cartItems, { ...cartItemToAdd, quantity: 1 }];
+    return [...cartItems, {...cartItemToAdd, 
+                 quantity: 1, 
+                 cartTotal: cartItemToAdd.price.total}];
   };
   
   export const removeItemFromCart = (cartItems, cartItemToRemove) => {
@@ -27,7 +33,11 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
 
       return cartItems.map(cartItem => 
           cartItem.id === cartItemToRemove.id 
-          ? { ...cartItem, quantity: cartItem.quantity - 1}
+          ? { 
+              ...cartItem, 
+              quantity: cartItem.quantity - 1,
+              cartTotal: cartItem.cartTotal - cartItem.price.total
+            }
           : cartItem
       )
   }
@@ -40,14 +50,14 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return cartItems.filter(cartItem => cartItem !== existingCartItem);
   }
 
-  export const calculateQuantity = (state, selector) => {
+  export const calculateTotal = (state, selector) => {
     return state.map(cartItem => cartItem[selector]).reduce((x, y) => x + y, 0)
   }
 
   export const addToLocalStorage = (items) => {
     return localStorage.setItem("cart_items", JSON.stringify(items));
   }
-
+  
   export const toggleHidden = (state ) => {
       if(state) {
         document.body.style.overflow = "hidden";

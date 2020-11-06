@@ -13,8 +13,10 @@ import Text from '../text/text.component'
 
 import {useAppState} from '../../providers/app.provider'
 
-const ProductCard = ({currency, product}) => {
-    const [{}, dispatch] = useAppState();
+import {getLocaleNum} from '../../utils'
+
+const ProductCard = ({product}) => {
+    const [{currency, exchangeRate}, dispatch] = useAppState();
 
     const addToCart = item => {
         dispatch({
@@ -38,11 +40,11 @@ const ProductCard = ({currency, product}) => {
 
                 <PricingContainer>
                     <Text>Weekly Lease</Text>
-                    <Text>{currency}{product.price.weekly}</Text>
+                    <Text>{getLocaleNum(product.price.weekly, exchangeRate, currency)}</Text>
                 </PricingContainer>
                 <PricingContainer>
                     <Text>Selling Price</Text>
-                    <Text>{currency}{product.price.total}</Text>
+                    <Text>{getLocaleNum(product.price.total, exchangeRate, currency)}</Text>
                 </PricingContainer>
             </ProductOverview>
                 <AddToCartBtn onClick = {() => addToCart(product)}>Add to Cart</AddToCartBtn>

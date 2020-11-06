@@ -1,28 +1,25 @@
-import React, { createContext, useReducer, useContext } from 'react'
-import {STOCK} from '../constants/data'
+import React, { createContext, useReducer, useContext } from 'react';
+import {STOCK} from '../constants/data';
 
 import {addItemToCart, 
         removeItemFromCart, 
         clearItemFromCart, 
         addToLocalStorage,
-        calculateQuantity,
-        toggleHidden} 
-    from './app.utils'
+        calculateTotal,
+        toggleHidden
+    } from './app.utils'
 
 const AppContext = createContext();
 
-export const useAppState = () => {
-    return useContext(AppContext);
-}
-
 const INITIAL_STATE = {
-    stock: STOCK,
-    filteredList: STOCK,
+    inventory: STOCK,
     cartItems: [],
     quantity: 0,
-    activeFilterLink: 0,
+    active: 0,
     hidden: true,
-    price: 0
+    currency: "CAD",
+    exchangeRate: 1,
+    cartSubtotal: 0,
 }
 
 const appStateReducer = (state, action) => {
@@ -30,7 +27,7 @@ const appStateReducer = (state, action) => {
         case "TOGGLE_CART_HIDDEN": {
             return {
                 ...state,
-                hidden: toggleHidden(state.hidden)
+                hidden: toggleHidden(state.hidden),
             }
         }
         case "ADD_TO_CART" : {
@@ -39,7 +36,8 @@ const appStateReducer = (state, action) => {
             return {
                 ...state,
                 cartItems: items,
-                quantity: calculateQuantity(items, 'quantity'),
+                quantity: calculateTotal(items, 'quantity'),
+                cartSubtotal: calculateTotal(items, 'cartTotal'),
             }
         }
         case "REMOVE_FROM_CART" : {
@@ -48,7 +46,8 @@ const appStateReducer = (state, action) => {
             return {
                 ...state,
                 cartItems: items,
-                quantity: calculateQuantity(items, 'quantity')
+                quantity: calculateTotal(items, 'quantity'),
+                cartSubtotal: calculateTotal(items, 'cartTotal'),
             }
         }
         case "CLEAR_FROM_CART" : {
@@ -57,22 +56,31 @@ const appStateReducer = (state, action) => {
             return {
                 ...state,
                 cartItems: items,
-                quantity: calculateQuantity(items, 'quantity')
+                quantity: calculateTotal(items, 'quantity'),
+                cartSubtotal: calculateTotal(items, 'cartTotal'),
             }
-        }
+        }   
         case "FILTER_STOCK_BY_CATEGORY" : {
             return {
                 ...state,
-                filteredList: state.stock.filter(item => 
+                inventory: STOCK.filter(item => 
                     item.category.includes(action.category)),
-                activeFilterLink: action.active
+                active: action.active
             }
         }
         case "GET_LOCAL_STATE": {
             return {
                 ...state,
                 cartItems: action.payload,
-                quantity: calculateQuantity(action.payload, 'quantity')
+                quantity: calculateTotal(action.payload, 'quantity'),
+                cartSubtotal: calculateTotal(action.payload, 'cartTotal'),
+            }
+        }
+        case "CHANGE_CURRENCY": {
+            return {
+                ...state,
+                exchangeRate: action.rate,
+                currency: action.currency
             }
         }
         default: 
@@ -83,4 +91,8 @@ const appStateReducer = (state, action) => {
 export const AppStateProvider = ({children}) => {
     let value = useReducer(appStateReducer, INITIAL_STATE);
     return <AppContext.Provider value = {value}>{children}</AppContext.Provider>
+}
+
+export const useAppState = () => {
+    return useContext(AppContext);
 }

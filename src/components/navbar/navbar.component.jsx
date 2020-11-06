@@ -11,6 +11,7 @@ import {NavbarContainer,
 import cartIcon from '../../images/cart.svg'
 
 import {useAppState} from '../../providers/app.provider'
+import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component'
 
 const Navbar = ({...rest}) => {
     const [{quantity}, dispatch] = useAppState();
@@ -32,6 +33,7 @@ const Navbar = ({...rest}) => {
                     <NavLink to = {link.href} key = {link.id}  cta = {link.cta}>{link.text}</NavLink>
                 ))
             }
+            <CurrencyDropdown/>
                 <CartIcon onClick = {() => toggleCartHidden()}>
                     <img src = {cartIcon} 
                     alt = "cart icon" />

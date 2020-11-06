@@ -12,7 +12,7 @@ const FadeInContainer = ({children, ...rest}) => {
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 // use if statement if you only want to animate the element once, the first time it's scrolled into view
-                // if(!isVisible) 
+                if(!isVisible) 
                 setIsVisible(entry.isIntersecting);
             })
         });

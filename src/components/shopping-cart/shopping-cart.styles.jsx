@@ -30,6 +30,15 @@ color: ${colors.text};
 }
 `
 
+export const CartHeader = styled.div`
+margin: 20px 0;
+padding: 10px 0;
+border-bottom: 1px solid ${colors.text};
+display: flex;
+align-items: center;
+justify-content: space-between;
+`
+
 export const CloseIcon = styled.div`
 position: absolute;
 top: 20px;

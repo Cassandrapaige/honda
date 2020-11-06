@@ -9,7 +9,7 @@ const useLocal = () => {
 
         dispatch({
             type: "GET_LOCAL_STATE",
-            payload: items ? items : []
+            payload: items ? items : [],
         });
     }, [dispatch]);
 }

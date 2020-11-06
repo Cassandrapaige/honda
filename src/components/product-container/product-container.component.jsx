@@ -9,14 +9,14 @@ import {ProductGridContainer} from './product-container.styles'
 import FadeInContainer from '../fade-in-container/fade-in-container.component'
 
 const ProductContainer = () => {
-    const [{filteredList}] = useAppState();
+    const [{inventory}] = useAppState();
 
     return (
         <div>
             <FilterHeader />
                 <ProductGridContainer>
                 {
-                    filteredList.map(product => (
+                    inventory.map(product => (
                         <FadeInContainer>
                             <ProductCard product = {product}/>
                         </FadeInContainer>

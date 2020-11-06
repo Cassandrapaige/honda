@@ -17,8 +17,9 @@ const Homepage = () => {
     return (
         <div>
             <Header />
+            
             <Carousel 
-                title = "Explore the 2020 & 2021 Lineup of New Honda Vehicles"
+                title = "Find the vehicle right for you"
                 slideNum = {DATA.length} 
                 inView = '2'>
                 {
@@ -31,35 +32,25 @@ const Homepage = () => {
             </Carousel>
             <Parralax image = 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/SHOP-Family-Pages/Clarity/New/Hero-Mobile-375-MY20-2x.jpg%202x'>
                 <FadeInContainer>
-                    <Title>Honda Canada: Coupes, Sedans, Hatchbacks, SUVs, Cross-Overs, Minivans & Hybrids</Title>
+                    <Title>Explore the 2020 & 2021 Lineup of New Honda Vehicles</Title>
                 </FadeInContainer>
                 <FadeInContainer>
                     <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aut aperiam necessitatibus eius odit voluptas commodi maiores et quisquam blanditiis.</Text>
                 </FadeInContainer>
             </Parralax>
+
             <ProductContainer />
 
             <Parralax image = 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2020/Civic-Si-Coupe/NON-VLP/Civic-Family-Page/Civic_Family_Hero_Mobile_375.jpg%202x'>
                 <FadeInContainer>
-                    <Title>Built in Canada -- and it shows</Title>
+                    <Title>Honda Canada: Coupes, Sedans, Hatchbacks, SUVs, Cross-Overs, Minivans & Hybrids</Title>
                 </FadeInContainer>
                 <FadeInContainer>
                     <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolore soluta natus possimus, quos est non, quas iusto, consequatur nobis voluptatum saepe eligendi explicabo fugit voluptates at distinctio quasi optio.</Text>
                 </FadeInContainer>
             </Parralax>
-            <Gallery />
-            <Carousel 
-                title = 'Explore the 2020 & 2021 Lineup of New Honda Vehicles'
-                slideNum = {DATA.length} 
-                inView = '3'>
-                {
-                    DATA.map(el => (
-                        <FadeInContainer slidein>
-                            <CarouselItem data = {el} />
-                        </FadeInContainer>
-                    ))
-                }
-            </Carousel>
+
+            <Gallery /> 
         </div>
     )
 }

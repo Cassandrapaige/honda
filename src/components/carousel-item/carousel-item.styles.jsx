@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 
 export const ProductContainer = styled.section`
-box-shadow: 0px 2px 2px rgba(18, 18, 18, .2);
+box-shadow: 0px 2px 4px rgba(18, 18, 18, .4);
 `
 
 export const ProductContainerInner = styled.div`

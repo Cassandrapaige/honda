@@ -6,8 +6,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/fit/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `18,091`,
-            weekly: `55.83`
+            total: 18091,
+            weekly: 55.83
         }
     },
     {
@@ -17,8 +17,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/civic_coupe/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `23,491`,
-            weekly: `63.97`
+            total: 23491,
+            weekly: 63.97
         }
     },
     {
@@ -28,8 +28,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/civic_hatchback/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `25,991`,
-            weekly: `79.97`
+            total: 25991,
+            weekly: 79.97
         }
     },
     {
@@ -39,8 +39,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://www.honda.ca/client/img/MY20_Civic_Coupe_Si_all_models.jpg?width=525`,
         price: {
-            total: `32,091`,
-            weekly: `95.05`
+            total: 32091,
+            weekly: 95.05
         }
     },
     {
@@ -50,8 +50,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/hr_v/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `26,371`,
-            weekly: `77.08`
+            total: 26371,
+            weekly: 77.08
         }
     },
     {
@@ -61,8 +61,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/cr-v/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `30,876`,
-            weekly: `82.47`
+            total: 30876,
+            weekly: 82.47
         }
     },
     {
@@ -72,8 +72,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/passport/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `44,676`,
-            weekly: `127.15`
+            total: 44676,
+            weekly: 127.15
         }
     },
     {
@@ -83,8 +83,8 @@ export const STOCK = [
         year: `2021`,
         image: `https://images.honda.ca/models/H/Models/2021/odyssey/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `44,776`,
-            weekly: `135.08`
+            total: 44776,
+            weekly: 135.08
         }
     },
     {
@@ -94,8 +94,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/ridgeline/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `44,676`,
-            weekly: `131.89`
+            total: 44676,
+            weekly: 131.89
         }
     },
     {
@@ -105,8 +105,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2020/accord_hybrid/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `36,506`,
-            weekly: `116.27`
+            total: 36506,
+            weekly: 116.27
         }
     },
     {
@@ -116,8 +116,8 @@ export const STOCK = [
         year: `2021`,
         image: `https://images.honda.ca/models/H/Models/2021/insight/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `30,276`,
-            weekly: `98.72`
+            total: 30276,
+            weekly: 98.72
         }
     },
     {
@@ -127,8 +127,8 @@ export const STOCK = [
         year: `2020`,
         image: `https://images.honda.ca/models/H/Models/2021/clarity/hondaca_lifeStyle.png?width=525`,
         price: {
-            total: `46,306`,
-            weekly: `163.47`
+            total: 46306,
+            weekly: 163.47
         }
     }
 ]

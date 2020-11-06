@@ -1,16 +1,30 @@
 import React, { Fragment } from 'react'
 import { useTransition, config} from 'react-spring'
 
-import {CartContainer, CloseIcon, OverlayContainer, OverviewItem, CartTotalsOverview} from './shopping-cart.styles'
+import {CartContainer,
+        CartHeader, 
+        CloseIcon, 
+        OverlayContainer, 
+        OverviewItem, 
+        CartTotalsOverview
+    } from './shopping-cart.styles'
 
 import CartItem from '../cart-item/cart-item.component'
 import Title from '../title/title.component'
 import Text from '../text/text.component'
 
 import {useAppState} from '../../providers/app.provider'
+import {getLocaleNum} from '../../utils';
+import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component'
 
 const ShoppingCart = () => {
-    const [{cartItems, hidden, price}, dispatch] = useAppState();
+    const [{cartItems, 
+            hidden, 
+            cartSubtotal,
+            exchangeRate,
+            currency,
+            quantity
+        }, dispatch] = useAppState();
 
     const transitions = useTransition(!hidden, null, {
         config: config.default,
@@ -25,11 +39,13 @@ const ShoppingCart = () => {
         })
     }
 
-    console.log(cartItems.map(cartItem => cartItem.price.total).reduce((x, y) => parseFloat(x) + parseFloat(y), 0))
     return transitions.map(({ item, props }) => item && (
         <Fragment>
             <CartContainer style= {props} >
-                <Title>My Cart</Title>
+                <CartHeader>
+                    <h2>My Cart [{quantity}]</h2>
+                    <CurrencyDropdown />
+                </CartHeader>
                <CloseIcon  onClick = {() => toggleCartHidden()}/>
                {
                 cartItems.map(cartItem => (
@@ -39,11 +55,11 @@ const ShoppingCart = () => {
                <CartTotalsOverview>
                     <OverviewItem>
                         <Text>Subtotal</Text>
-                        <Text>$246.00</Text>
+                        <Text>{getLocaleNum(cartSubtotal, exchangeRate, currency)}</Text>
                     </OverviewItem>
                     <OverviewItem>
                         <Text>Taxes</Text>
-                        <Text>$33.20</Text>
+                        <Text>{getLocaleNum((cartSubtotal * .13), exchangeRate, currency)}</Text>
                     </OverviewItem>
                     <OverviewItem>
                         <Text>Estimated Shipping</Text>
@@ -51,7 +67,7 @@ const ShoppingCart = () => {
                     </OverviewItem>
                     <OverviewItem>
                         <Text>Total</Text>
-                        <Text>{price}</Text>
+                        <Text>{getLocaleNum((cartSubtotal * .13) + cartSubtotal, exchangeRate, currency)}</Text>
                     </OverviewItem>
                </CartTotalsOverview>
             </CartContainer>
