@@ -7,7 +7,7 @@ display: flex;
 width: 100%;
 justify-content: space-between;
 align-items: center;
-background: ${colors.complimentary};
+background: ${colors.primary};
 margin: 10px 0;
 `
 

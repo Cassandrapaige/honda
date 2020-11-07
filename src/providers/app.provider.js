@@ -24,6 +24,15 @@ const INITIAL_STATE = {
 
 const appStateReducer = (state, action) => {
     switch(action.type) {
+        case "GET_LOCAL_STATE": {
+            return {
+                ...state,
+                cartItems: action.payload,
+                quantity: calculateTotal(action.payload, 'quantity'),
+                cartSubtotal: calculateTotal(action.payload, 'cartTotal'),
+                currency: action.currency
+            }
+        }
         case "TOGGLE_CART_HIDDEN": {
             return {
                 ...state,
@@ -32,7 +41,7 @@ const appStateReducer = (state, action) => {
         }
         case "ADD_TO_CART" : {
             let items = addItemToCart(state.cartItems, action.payload);
-            addToLocalStorage(items)
+            addToLocalStorage("cart_items", items)
             return {
                 ...state,
                 cartItems: items,
@@ -42,7 +51,7 @@ const appStateReducer = (state, action) => {
         }
         case "REMOVE_FROM_CART" : {
             let items = removeItemFromCart(state.cartItems, action.payload);
-            addToLocalStorage(items)
+            addToLocalStorage("cart_items", items)
             return {
                 ...state,
                 cartItems: items,
@@ -52,7 +61,7 @@ const appStateReducer = (state, action) => {
         }
         case "CLEAR_FROM_CART" : {
             let items = clearItemFromCart(state.cartItems, action.payload);
-            addToLocalStorage(items)
+            addToLocalStorage("cart_items", items)
             return {
                 ...state,
                 cartItems: items,
@@ -68,15 +77,9 @@ const appStateReducer = (state, action) => {
                 active: action.active
             }
         }
-        case "GET_LOCAL_STATE": {
-            return {
-                ...state,
-                cartItems: action.payload,
-                quantity: calculateTotal(action.payload, 'quantity'),
-                cartSubtotal: calculateTotal(action.payload, 'cartTotal'),
-            }
-        }
         case "CHANGE_CURRENCY": {
+            addToLocalStorage("currency", action.currency)
+
             return {
                 ...state,
                 exchangeRate: action.rate,

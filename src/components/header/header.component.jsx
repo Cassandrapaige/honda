@@ -77,11 +77,11 @@ const styles = {
 
 const SLIDES = [
     {
-      id: 0,
-      img: headerImage1,
-      tagline: "Canadian built.",
-      title: "Canadian Driven.",
-      btn: "Shop Now"
+        id: 0,
+        img: 'https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/99-honda-civic-type-r-sport-line-2020-press-front.jpg?itok=k0vk4jby',
+        tagline: "Canadian built.",
+        title: "Canadian Driven.",
+        btn: "Shop Now"
     },
     {
       id: 1,

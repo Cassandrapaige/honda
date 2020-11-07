@@ -6,16 +6,15 @@ import {CartContainer,
         CloseIcon, 
         OverlayContainer, 
         OverviewItem, 
-        CartTotalsOverview
+        CartTotalsOverview,
+        CartItems
     } from './shopping-cart.styles'
 
 import CartItem from '../cart-item/cart-item.component'
-import Title from '../title/title.component'
 import Text from '../text/text.component'
 
 import {useAppState} from '../../providers/app.provider'
 import {getLocaleNum} from '../../utils';
-import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component'
 
 const ShoppingCart = () => {
     const [{cartItems, 
@@ -39,19 +38,20 @@ const ShoppingCart = () => {
         })
     }
 
+    console.log(cartItems)
+
     return transitions.map(({ item, props }) => item && (
         <Fragment>
             <CartContainer style= {props} >
                 <CartHeader>
                     <h2>My Cart [{quantity}]</h2>
-                    <CurrencyDropdown />
                 </CartHeader>
                <CloseIcon  onClick = {() => toggleCartHidden()}/>
-               {
-                cartItems.map(cartItem => (
-                    <CartItem cartItem = {cartItem} />
-                ))
-               }
+               <CartItems>
+                {cartItems.length !== 0 ? (cartItems.map(cartItem => (
+                    <CartItem cartItem = {cartItem} /> ))
+                ): "You haven't added anything to your cart yet.."}
+               </CartItems>
                <CartTotalsOverview>
                     <OverviewItem>
                         <Text>Subtotal</Text>
@@ -63,7 +63,7 @@ const ShoppingCart = () => {
                     </OverviewItem>
                     <OverviewItem>
                         <Text>Estimated Shipping</Text>
-                        <Text>FREE</Text>
+                        <Text>{cartItems.length !== 0 ? 'FREE' : 'N/A'}</Text>
                     </OverviewItem>
                     <OverviewItem>
                         <Text>Total</Text>

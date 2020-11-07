@@ -15,9 +15,11 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
       );
     }
   
-    return [...cartItems, {...cartItemToAdd, 
-                 quantity: 1, 
-                 cartTotal: cartItemToAdd.price.total}];
+    return [...cartItems, 
+            {...cartItemToAdd, 
+              quantity: 1, 
+              cartTotal: cartItemToAdd.price.total
+            }];
   };
   
   export const removeItemFromCart = (cartItems, cartItemToRemove) => {
@@ -54,8 +56,8 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return state.map(cartItem => cartItem[selector]).reduce((x, y) => x + y, 0)
   }
 
-  export const addToLocalStorage = (items) => {
-    return localStorage.setItem("cart_items", JSON.stringify(items));
+  export const addToLocalStorage = (name, items) => {
+    return localStorage.setItem(name, JSON.stringify(items));
   }
   
   export const toggleHidden = (state ) => {

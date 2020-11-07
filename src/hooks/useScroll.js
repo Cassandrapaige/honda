@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 
 const useScroll = () => {
-    const [scrollY, setScrollY] = useState(0);
+    const [scrollY, setScrollY] = useState(null);
     
     const getScrollPosition = () => {
         if(typeof window !== undefined) {
@@ -10,8 +10,7 @@ const useScroll = () => {
       }
  
       useEffect(() => {
-        window.addEventListener('onload', getScrollPosition);
-        return () => window.removeEventListener('onload', getScrollPosition);
+        getScrollPosition();
     }, [scrollY]);
 
       useEffect(() => {

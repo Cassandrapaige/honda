@@ -5,7 +5,7 @@ box-shadow: 0px 2px 4px rgba(18, 18, 18, .4);
 `
 
 export const ProductContainerInner = styled.div`
-height: 500px;
+min-height: 500px;
 background: ${({image}) => 
     `linear-gradient(45deg, rgba(18, 18, 18, 0.62), rgba(18, 18,18, 0.58)), url(${image})`};
 background-size: cover;
@@ -14,6 +14,9 @@ background-repeat: no-repeat;
 overflow: hidden;
 transition: all .5s ease;
 position: relative;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
 `
 
 export const ProductContainerContent = styled.div`
@@ -24,10 +27,12 @@ align-items: center;
 flex-direction: column;
 min-height: 50%;
 color: #c0c0c0;
+flex-grow: 1;
 
 h2 {
   font-size: 2rem;
   transition: all .5s ease;
+  opacity: ${({hovered}) => hovered ? 0 : 1};
 }
    
 span {
@@ -35,17 +40,8 @@ span {
   margin-bottom: 10px;
   text-transform: uppercase;
   transition: all .5s ease;
+  transform: ${({hovered}) => hovered ? 'translateY(35px)' : 'translateY(0px)'}
 }
-
-${({hovered}) => hovered && css`
-h2 {
-    opacity: 0;
-}
-
-span {
-    transform: translateY(35px);
-}
-`}
 `
 
 export const ProductContainerLower = styled.div`
@@ -56,18 +52,16 @@ flex-direction: column;
 background: transparent;
 transform: translateY(60%);
 transition: all .5s ease;
-min-height: 40%;
 bottom: 0;
 
-
 ${({hovered}) => hovered && css`
-transform: translateY(25%);
+transform: translateY(0);
 background: #c0c0c0;`
 }
 `
 
 export const FeaturesList = styled.ul`
-padding: 50px;  
+padding: 80px 50px 50px 50px;  
 list-style-type: none;
 opacity: 0;
 transition: all .2s ease;
@@ -117,16 +111,16 @@ ${({hovered}) => hovered && css`
 `
 
 export const AnimatedImage = styled.img`
-width: 70%;
+width: 65%;
 object-fit:contain;
 position: absolute;
-top: 0;
+top: 0px;
 left: 50%;
 transform: translateX(-50%) translateY(-60%);
 transition: all .5s ease;
 
 ${({hovered}) => hovered && css`
-width: 55%;
+width: 50%;
 `}
 `
  

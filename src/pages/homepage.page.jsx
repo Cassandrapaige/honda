@@ -60,7 +60,7 @@ const DATA = [
         id: 0,
         tagline: '2020 Passport',
         title: 'The Adventurer',
-        background: 'https://wallup.net/wp-content/uploads/2015/12/153891-road-mountain-landscape.jpg',
+        background: 'https://hdqwalls.com/download/cloud-horizon-landscape-nature-road-a4-1920x1080.jpg',
         car: 'https://images.jazelc.com/uploads/galpinhonda/12454_st1280_089.png',
         features: [
             'Active cruise with stop and go',
@@ -85,7 +85,7 @@ const DATA = [
         tagline: '2020 Passport',
         title: 'The Adventurer',
         background: 'https://images5.alphacoders.com/567/567118.jpg',
-        car: 'https://st.motortrend.com/uploads/sites/10/2017/09/2018-honda-hr-v-ex-suv-angular-front.png',
+        car: 'https://images.jazelc.com/uploads/galpinhonda/12454_st1280_089.png',
         features: [
             'Active cruise with stop and go',
             'Steering and lane control',
@@ -97,7 +97,7 @@ const DATA = [
         tagline: '2020 Passport',
         title: 'The Adventurer',
         background: 'https://images.wallpaperscraft.com/image/road_mountains_trees_123700_1920x1080.jpg',
-        car: 'https://images.jazelc.com/uploads/galpinhonda/12454_st1280_089.png',
+        car: 'https://st.motortrend.com/uploads/sites/10/2017/09/2018-honda-hr-v-ex-suv-angular-front.png',
         features: [
             'Active cruise with stop and go',
             'Steering and lane control',

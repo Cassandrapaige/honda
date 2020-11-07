@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {useSpring, config} from 'react-spring'
 
 import {
     ImageContainer,
@@ -14,13 +15,12 @@ import {useCurrency} from '../../hooks/useCurrency';
 import {useAppState} from '../../providers/app.provider'
 
 const CurrencyDropdown = () => {
-    let canadian_flag = 'https://cdn.countryflags.com/thumbs/canada/flag-round-500.png'
+    const [isVisible, setIsVisible] = useState(false);
     const money = useCurrency();
-    const [image, setImage] = useState(canadian_flag)
     const [{currency}, dispatch] = useAppState();
 
     const changeCurrency = type => {
-        setImage(type.flag);
+        setIsVisible(false);
         dispatch({
             type: "CHANGE_CURRENCY",
             rate: money[type.currency],
@@ -28,48 +28,66 @@ const CurrencyDropdown = () => {
         });
     }
 
+    const props = useSpring({
+        to: {
+            opacity: isVisible ? 1 : 0, 
+        },
+        config: {
+            config: config.default,
+            duration: 200
+        }
+    })
+
     return (
         <div style= {{position: `relative`}}>
-            <DropdownButton>
+            <DropdownButton handleClick = {() => setIsVisible(!isVisible)}>
                 <ImageContainer>
-                    <img src={image} alt="national flag" />
+                    <img src={_CURRENCY_DATA[currency].flag} alt="national flag" />
                 </ImageContainer>
                 <Text>{currency} Currency</Text>
             </DropdownButton>
-            <DropdownListContainer>
+            <DropdownListContainer style= {props}>
                 <DropdownList>
-                    {CURRENCY_DATA.map(currency => (
-                        <ListItem onClick = {() => changeCurrency(currency)}>
-                            {currency.nationality} {currency.currency}
-                        </ListItem>
-                    ))}
+                    {
+                        Object.keys(_CURRENCY_DATA).map((type, index) => {
+                            let item = _CURRENCY_DATA[type];
+                            return (
+                                <ListItem key = {index} onClick = {() => changeCurrency(item)}>
+                                <ImageContainer>
+                                    <img src={item.flag} alt={`${item.nationality} flag`} />
+                                </ImageContainer>
+                                    {item.currency}
+                                </ListItem>
+                            )
+                        })
+                    }
                 </DropdownList>
             </DropdownListContainer>
         </div>
     )
 }
 
-const CURRENCY_DATA = [
-    {
+const _CURRENCY_DATA = {
+    "CAD": {
         currency: "CAD",
         flag: "https://cdn.countryflags.com/thumbs/canada/flag-round-500.png",
         nationality: "Canadian"
     },
-    {
+    "USD": {
         currency: "USD",
         flag: "https://cdn.countryflags.com/thumbs/united-states-of-america/flag-round-500.png",
         nationality: "American"
     },
-    {
+    "GBP": {
         currency: "GBP",
         flag: "https://cdn.countryflags.com/thumbs/united-kingdom/flag-round-500.png",
         nationality: "British"
     },
-    {
+    "EUR": {
         currency: "EUR",
         flag: "https://cdn.countryflags.com/thumbs/european-union/flag-round-500.png",
         nationality: "European"
     }
-]
+}
 
 export default CurrencyDropdown;

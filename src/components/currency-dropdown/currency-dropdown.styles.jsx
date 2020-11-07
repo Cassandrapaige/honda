@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {colors} from '../../constants/styles'
+import {animated} from 'react-spring'
 
 export const ImageContainer = styled.div`
 width: 25px;
@@ -15,7 +16,7 @@ img {
 }
 `
 
-export const DropdownListContainer = styled.div`
+export const DropdownListContainer = styled(animated.div)`
 position: absolute;
 background: ${colors.complimentary};
 border-radius: 5px;
@@ -28,7 +29,6 @@ box-shadow: 0px 2px 4px rgba(19, 19, 19,0.08),0px 4px 8px rgba(19, 19, 19,0.16);
 export const DropdownList = styled.ul`
 list-style-type: none;
 color: ${colors.text};
-padding: 10px 5px;
 `
 
 export const ListItem = styled.li`
@@ -36,6 +36,9 @@ font-weight: 200;
 padding: 5px;
 cursor: pointer;
 transition: all .2s ease;
+display: flex;
+background: ${colors.primary};
+margin: 5px;
 
 &:hover {
     background: ${colors.text};

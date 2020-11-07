@@ -19,7 +19,7 @@ position: fixed;
 top: 0px;
 background: ${colors.secondary};
 right: 0;
-width: 450px;
+width: 500px;
 z-index: 2000;
 overflow: scroll;
 padding: 50px 10px;
@@ -37,6 +37,10 @@ border-bottom: 1px solid ${colors.text};
 display: flex;
 align-items: center;
 justify-content: space-between;
+`
+
+export const CartItems = styled.div`
+min-height: 50%;
 `
 
 export const CloseIcon = styled.div`
