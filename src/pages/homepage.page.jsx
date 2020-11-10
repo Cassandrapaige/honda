@@ -24,9 +24,7 @@ const Homepage = () => {
                 inView = '2'>
                 {
                     DATA.map(el => (
-                        <FadeInContainer slidein>
-                            <CarouselItem data = {el} />
-                        </FadeInContainer>
+                        <CarouselItem data = {el} />
                     ))
                 }
             </Carousel>
@@ -94,6 +92,30 @@ const DATA = [
     },
     {
         id: 3,
+        tagline: '2020 Passport',
+        title: 'The Adventurer',
+        background: 'https://images.wallpaperscraft.com/image/road_mountains_trees_123700_1920x1080.jpg',
+        car: 'https://st.motortrend.com/uploads/sites/10/2017/09/2018-honda-hr-v-ex-suv-angular-front.png',
+        features: [
+            'Active cruise with stop and go',
+            'Steering and lane control',
+            'Massage function for driver and passanger'
+        ]
+    },
+    {
+        id: 4,
+        tagline: '2020 Passport',
+        title: 'The Adventurer',
+        background: 'https://images5.alphacoders.com/567/567118.jpg',
+        car: 'https://images.jazelc.com/uploads/galpinhonda/12454_st1280_089.png',
+        features: [
+            'Active cruise with stop and go',
+            'Steering and lane control',
+            'Massage function for driver and passanger'
+        ]
+    },
+    {
+        id: 5,
         tagline: '2020 Passport',
         title: 'The Adventurer',
         background: 'https://images.wallpaperscraft.com/image/road_mountains_trees_123700_1920x1080.jpg',

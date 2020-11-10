@@ -71,7 +71,6 @@ const styles = {
         display: `flex`,
         flexDirection: `column`,
         justifyContent: `center`,
-        padding: `100px`
     }
 }
 

@@ -11,6 +11,11 @@ img {
     object-fit: contain;
     margin-bottom: 30px;
 }
+
+@media(max-width: 600px) {
+    padding: 30px 10px;
+}
+
 `
 
 export const FooterNavigation = styled.nav`
@@ -18,6 +23,11 @@ display: flex;
 flex-wrap: wrap;
 column-gap: 30px;
 row-gap: 30px;
+
+@media(max-width: 600px) {
+    column-gap: 0px;
+    row-gap: 0px;
+}
 `
 
 export const LinkContainer = styled.div`

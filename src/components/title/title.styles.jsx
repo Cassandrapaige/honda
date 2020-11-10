@@ -13,4 +13,12 @@ ${({isHeading}) => isHeading && css`
     width: 80%;
     font-weight: 900;
 `}
+
+@media(max-width: 600px) {
+    font-size: 1.8rem;
+
+    ${({isHeading}) => isHeading && css`
+        font-size: 3rem;
+    `}
+}
 `

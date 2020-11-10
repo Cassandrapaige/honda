@@ -33,7 +33,6 @@ ${({hovered}) => hovered && css`
 
 export const CarouselInner = styled.div`
 position: relative;
-overflow: hidden;
 margin: 50px 0;
 `
 
@@ -42,4 +41,8 @@ display: grid;
 grid-template-columns: ${({slideNum, inView}) => 
     `repeat(${slideNum}, calc((100% / ${inView}) - 20px))`};
 gap: 30px;
+-webkit-overflow-scrolling: touch;
+overflow-x: hidden;
+overflow-y: hidden;
+scrollbar-width: none;
 `

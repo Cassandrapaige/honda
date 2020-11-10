@@ -9,6 +9,10 @@ gap: 20px;
 padding: 20px;
 background: ${colors.secondary};
 position: relative;
+
+@media(max-width: 600px) {
+    grid-template-rows: repeat(3, 150px);
+}
 `
 
 export const ImageContainer = styled.div`
@@ -16,7 +20,7 @@ position: relative;
 cursor: zoom-in;
 overflow: hidden;
 
-&:hover img{
+&:hover img {
     transform: scale(1.1);
 }
 

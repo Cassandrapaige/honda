@@ -31,6 +31,7 @@ const CurrencyDropdown = () => {
     const props = useSpring({
         to: {
             opacity: isVisible ? 1 : 0, 
+            display: isVisible ? 'block' : 'none'
         },
         config: {
             config: config.default,
