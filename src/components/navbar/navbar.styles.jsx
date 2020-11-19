@@ -14,6 +14,10 @@ align-items: center;
 padding: 20px 60px;
 transition: all .5s ease;
 
+@media(max-width: 680px) {
+  padding: 20px;
+}
+
 img {
   width: 100%;
   height: 100%;
@@ -35,6 +39,10 @@ font-size: 1.1rem;
 position: relative;
 font-weight: 300;
 cursor: pointer;
+
+@media(max-width: 1100px) {
+  display: none;
+}
 
 &:before {
   position: absolute;

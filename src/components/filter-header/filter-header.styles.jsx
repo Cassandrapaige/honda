@@ -15,6 +15,13 @@ position: sticky;
 top: 82px;
 padding: 0 50px;
 z-index: 20;
+right: 0;
+
+@media(max-width: 680px) {
+  padding: 0;
+  flex-wrap: wrap;
+  border-bottom: none;
+}
 `
 
 export const FilterMenuItem = styled.div`
@@ -25,6 +32,12 @@ font-size: 1.1rem;
 color: 	${colors.text};
 transition: all .2s ease;
 font-weight: 300;
+
+@media(max-width: 680px) {
+  font-size: 1rem;
+  flex-grow: 1;
+  border-bottom: 1px solid ${colors.complimentary};
+}
 
 &:last-of-type {
   border-right: none;

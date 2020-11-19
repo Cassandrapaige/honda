@@ -15,8 +15,7 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
       );
     }
   
-    return [...cartItems, 
-            {...cartItemToAdd, 
+    return [...cartItems, {...cartItemToAdd, 
               quantity: 1, 
               cartTotal: cartItemToAdd.price.total
             }];

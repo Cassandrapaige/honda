@@ -33,7 +33,7 @@ const Navbar = ({...rest}) => {
                     <NavLink to = {link.href} key = {link.id}  cta = {link.cta}>{link.text}</NavLink>
                 ))
             }
-            <CurrencyDropdown/>
+                <CurrencyDropdown/>
                 <CartIcon onClick = {() => toggleCartHidden()}>
                     <img src = {cartIcon} 
                     alt = "cart icon" />

@@ -10,8 +10,9 @@ padding: 20px;
 background: ${colors.secondary};
 position: relative;
 
-@media(max-width: 600px) {
-    grid-template-rows: repeat(3, 150px);
+@media(max-width: 680px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 200px);
 }
 `
 

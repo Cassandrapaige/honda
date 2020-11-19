@@ -44,9 +44,9 @@ const Footer = () => {
             </LinkContainer>
 
             <div style= {{marginTop: `50px`, textAlign: `center`, width: `100%`, borderTop: `1px solid #c0c0c0`, paddingTop: `30px`}}>
-            <span style= {{fontWeight: 200, fontSize: `.9rem`}}>
-                &copy; All information contained herein applies to Canadian vehicles only.
-            </span>
+                <span style= {{fontWeight: 200, fontSize: `.9rem`}}>
+                    &copy; All information contained herein applies to Canadian vehicles only.
+                </span>
             </div>
         </FooterContainer>
     )

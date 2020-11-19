@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 import {colors} from '../../constants/styles'
 
 export const Button = styled(Link)`
-background: ${colors.accent};
+background: ${({color}) => color ? color : colors.accent};
 text-decoration: none;
-color: ${colors.text};
+color: #fff;
 padding: 20px;
 border-radius: 0px;
 text-align: center;
@@ -17,4 +17,5 @@ cursor: pointer;
 display: inline-block;
 margin-top: 30px;
 min-width: 250px;
+max-width: 350px;
 `

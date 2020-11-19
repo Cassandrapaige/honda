@@ -1,15 +1,14 @@
 import React from 'react'
 import OverlayContainer from '../overlay-container/overlay-container.component'
 
-import {FixedContainer} from './parallax.styles'
-import Container from '../container/container.component'
+import {FixedContainer, ParallaxContent} from './parallax.styles'
 
 const Parralax = ({children, ...rest}) => (
     <FixedContainer {...rest}>
         <OverlayContainer dark style= {styles.overlay}>
-            <Container>
+            <ParallaxContent>
                 {children}
-            </Container>
+            </ParallaxContent>
         </OverlayContainer>
     </FixedContainer>
 )

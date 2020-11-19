@@ -16,6 +16,12 @@ transition: all .3s ease;
 cursor: pointer;
 margin-left: 15px;
 position: relative;
+
+@media(max-width: 680px) {
+    span {
+        display: none;
+    }
+}
 `
 
 export const Arrows = styled.div`

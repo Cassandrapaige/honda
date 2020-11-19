@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components'
+import {colors} from '../../constants/styles'
 
 export const ProductContainer = styled.section`
 box-shadow: 0px 2px 4px rgba(18, 18, 18, .4);
@@ -17,6 +18,10 @@ position: relative;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
+
+@media(max-width: 900px) {
+  min-height: 420px;
+}
 `
 
 export const ProductContainerContent = styled.div`
@@ -26,13 +31,17 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 min-height: 50%;
-color: #c0c0c0;
+color: ${colors.text};
 flex-grow: 1;
 
 h2 {
   font-size: 2rem;
   transition: all .5s ease;
   opacity: ${({hovered}) => hovered ? 0 : 1};
+
+  @media(max-width: 900px) {
+    opacity: 1;
+  }
 }
    
 span {
@@ -41,6 +50,10 @@ span {
   text-transform: uppercase;
   transition: all .5s ease;
   transform: ${({hovered}) => hovered ? 'translateY(35px)' : 'translateY(0px)'}
+
+  @media(max-width: 900px) {
+    transform: 'translateY(0px)';
+  }
 }
 `
 
@@ -56,7 +69,12 @@ bottom: 0;
 
 ${({hovered}) => hovered && css`
 transform: translateY(0);
-background: #c0c0c0;`
+background: ${colors.text};`
+}
+
+@media(max-width: 900px) {
+  transform: translateY(0);
+  background: ${colors.secondary};
 }
 `
 
@@ -69,6 +87,12 @@ transition: all .2s ease;
 ${({hovered}) => hovered && css`
 opacity: 1;
 `}
+
+@media(max-width: 900px) {
+  opacity: 1;
+  font-size: .9em;
+  padding: 80px 40px 20px 40px; 
+}
 `
 
 export const FeaturedItem = styled.li`
@@ -89,12 +113,16 @@ text-align: left;
   top: 5px;
   transform: rotate(-130deg);
 }
+
+@media(max-width: 900px) {
+  color: ${colors.text};
+}
 `
 
 export const CtaButton = styled.button`
 width: 100%;
 border: none;
-border-top: 1px solid #151414;
+border-top: 1px solid ${colors.primary};
 outline: none;
 padding: 20px;
 font-size: 1.2rem;
@@ -105,9 +133,17 @@ cursor: pointer;
 transition: all .3s ease;
 
 ${({hovered}) => hovered && css`
-  background: #c0c0c0;
-  color: #151414;
+  background: ${colors.text};
+  color: ${colors.primary};
 `}
+
+@media(max-width: 900px) {
+  background: ${colors.complimentary};
+  color: ${colors.text};
+  font-size: 1em;
+  padding: 16px;
+  font-weight: 400;
+}
 `
 
 export const AnimatedImage = styled.img`
@@ -122,5 +158,14 @@ transition: all .5s ease;
 ${({hovered}) => hovered && css`
 width: 50%;
 `}
+
+@media(max-width: 900px) {
+  width: 40%;
+  transform: translateX(-50%) translateY(-45%)
+}
+
+@media(max-width: 680px) {
+  width: 60%;
+}
 `
  

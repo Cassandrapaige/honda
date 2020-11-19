@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import './App.scss';
@@ -13,6 +13,7 @@ import {AppStateProvider} from './providers/app.provider'
 
 const App = () => {
   const scrollY = useScroll();
+  
     return (
      <AppStateProvider>
       <BrowserRouter>

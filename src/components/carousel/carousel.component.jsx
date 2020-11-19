@@ -1,65 +1,91 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React from 'react'
+import { useTransition, config } from 'react-spring'
 
-import {CarousleWrapper, CarouselInner, CarouselTrack,Arrow} from './carousel.styles'
-import Container from '../container/container.component'
-import Title from '../title/title.component'
-import FadeInContainer from '../fade-in-container/fade-in-container.component'
+import useCarousel from '../../hooks/useCarousel';
+import usePrevious from '../../hooks/usePrevious';
+import useObserver from '../../hooks/useObserver';
 
-const Carousel = ({title, children, ...rest}) => {
-    const [isHovered, setIsHovered] = useState(false);
+import CtaButton from '../cta-button/cta-button.component';
+import Title from '../title/title.component';
+import Text from '../text/text.component';
+import Container from '../container/container.component';
 
-    const onMouseEnter = () => setIsHovered(true);
-    const onMouseLeave = () => setIsHovered(false);
+import {ProgressBar, 
+        SlideContainer, 
+        SlideContentImage, 
+        SlideContentOverview, 
+        Image,
+        CarosuelContainer,
+        ProgressBarsWrapper,
+        Progress,
+        Slide
+      } from './carousel.styles'
 
-    const scrollRef = useRef(null);
-    const [viewWidth, setViewWidth] = useState(0);
-    const [showLeftArrow, setShowLeftArrow] = useState(false);
-    const [showRightArrow, setShowRightArrow] = useState(true);
+const Carousel = ({children, data, ...rest}) => {
+    let time = 6000;
+    const [isVisible, domRef] = useObserver(true);
+    const [activeLink, setActiveLink] = useCarousel(data, time, isVisible);
+    const prevLink = usePrevious(activeLink);
+  
+    const handleClick = id => setActiveLink(id);
+  
+    const conditionals =  (activeLink > prevLink) || (activeLink === 0 && prevLink === data.length - 1);
+  
+    const transitions = useTransition(data[activeLink], item => item.id, {
+      from: {
+          transform: conditionals ? `translateX(100%)` : `translateX(-100%)`, 
+          opacity: 0,
+      },
+      enter: {
+          transform: `translateX(0)`,
+          opacity: 1,
+      },
+      leave: {
+          transform: conditionals ? `translateX(-100%)` : `translateX(100%)`,
+          opacity: 0,
+      },
+      config: config.default
+    });
+  
+    const completed = slide => slide.id !== activeLink && slide.id < activeLink;
 
-    useEffect(() => {
-       setViewWidth(scrollRef.current.offsetWidth);
-    }, [scrollRef]);
-
-    const toggleArrows = content => {
-        const scrollWidth = content.scrollWidth - viewWidth;
-
-        content.scrollLeft > 0 ? 
-            setShowLeftArrow(true)
-            : setShowLeftArrow(false);
-    
-        content.scrollLeft < scrollWidth ?
-            setShowRightArrow(true)
-            : setShowRightArrow(false);
-    };
-
-    const handleClick = (elem, type) => {
-        const content = scrollRef.current;
-        type === 'next' &&  content.scrollBy(viewWidth + 20, 0);
-        type === 'prev' &&  content.scrollBy(-(viewWidth + 20), 0);
-        content.addEventListener('scroll', () => toggleArrows(content));
-    };
-
-    useEffect(() => {
-        window.addEventListener('resize', () => setViewWidth(scrollRef.current.offsetWidth));
-        return () => window.removeEventListener('resize', () => setViewWidth());
-    }, [scrollRef]);
-    
     return (
-        <Container>
-            <FadeInContainer>
-                <Title>{title}</Title>
-            </FadeInContainer> 
-            
-            <CarousleWrapper onMouseEnter = {onMouseEnter} onMouseLeave = {onMouseLeave}>
-                <CarouselInner>
-                    <CarouselTrack ref = {scrollRef} {...rest}>
-                      {children}
-                    </CarouselTrack>
-                </CarouselInner>
-                {showLeftArrow && <Arrow prev hovered = {isHovered} onClick = {e => handleClick(e, 'prev')}/>}
-                {showRightArrow && <Arrow next hovered = {isHovered} onClick = {e => handleClick(e, 'next')}/>}
-            </CarousleWrapper>
-        </Container>   
+   <Container {...rest}>
+   <CarosuelContainer>
+        <ProgressBarsWrapper>
+        {
+          data.map(slide => (
+            <ProgressBar key= {slide.id} onClick = {() => handleClick(slide.id)}>
+              <h2>{slide.name}</h2>
+              <Progress
+                color = {slide.color} 
+                completed = {completed(slide)} 
+                time = {time} 
+                active = {isVisible && slide.id === activeLink} 
+                ref = {domRef}>
+              </Progress>
+            </ProgressBar>
+          ))
+        }
+      </ProgressBarsWrapper>
+      <SlideContainer>
+      {
+        transitions.map(({item, props}) => (
+          <Slide key = {item.id} style = {props}>
+              <SlideContentOverview>
+                <Title>{item.title}</Title>
+                <Text>{item.text}</Text>
+                <CtaButton color = {item.color} text = {item.btn} />
+              </SlideContentOverview>
+              <SlideContentImage>
+                <Image src={item.image} alt="" />
+              </SlideContentImage>
+          </Slide>
+        ))
+      }
+      </SlideContainer>
+      </CarosuelContainer>
+    </Container>
     )
 }
 

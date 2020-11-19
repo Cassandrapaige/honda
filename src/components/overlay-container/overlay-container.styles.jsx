@@ -11,7 +11,7 @@ background: ${({dark}) => dark ? `${colors.overlay(.88)}` : `${colors.overlay(.7
 color: ${colors.text};
 padding: 100px;
 
-@media(max-width: 600px) {
-    padding: 30px;
+@media(max-width: 680px) {
+    padding: 20px;
 }
 `

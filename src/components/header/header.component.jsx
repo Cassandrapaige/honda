@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useTransition, config } from 'react-spring'
 import { images } from '../../constants/images'
 
@@ -13,10 +13,14 @@ import Title from '../title/title.component'
 import {HeaderWrapper, SlideContainer} from './header.styles'
 import CtaButton from '../cta-button/cta-button.component'
 
-const { headerImage1, headerImage2, headerImage3 } = images;
+import useObserver from '../../hooks/useObserver';
+
+const { headerImage2, headerImage3 } = images;
+
 
 const Header = () => {
-    const [activeLink, setActiveLink] = useCarousel(SLIDES, 8000);
+    const [isVisible, domRef] = useObserver(true);
+    const [activeLink, setActiveLink] = useCarousel(SLIDES, 8000, isVisible);
 
     const handleClick = id => {
         setActiveLink(id);
@@ -24,19 +28,19 @@ const Header = () => {
 
     const transitions = useTransition(SLIDES[activeLink], item => item.id, {
         from: {
-            transform: `translateX(-100%)`
+            opacity: 0,
         },
         enter: {
-            transform: `translateX(0)`
+            opacity: 1
         },
         leave: {
-            transform: `translateX(100%)`
+            opacity: 0
         },
         config: config.default
     })
 
     return (
-        <HeaderWrapper>
+        <HeaderWrapper ref = {domRef}>
             {transitions.map(({ item, props }) => (
                 <SlideContainer
                     key = {item.id}

@@ -1,9 +1,20 @@
 import React from 'react'
 
-import {ContentWrapper} from './container.styles'
+import Text from '../text/text.component';
+import FadeInContainer from '../fade-in-container/fade-in-container.component'
 
-const Container = ({children}) => (
-    <ContentWrapper>{children}</ContentWrapper>
+import {ContentWrapper, HeaderInfo, Title} from './container.styles';
+
+const Container = ({title, text, children}) => (
+    <ContentWrapper>
+        <FadeInContainer>
+            <HeaderInfo>
+                <Title>{title}</Title>
+                <Text>{text}</Text>
+            </HeaderInfo>
+        </FadeInContainer>
+        {children}
+    </ContentWrapper>
 )
 
 export default Container;

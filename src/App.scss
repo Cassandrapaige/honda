@@ -9,11 +9,5 @@
 body {
   position: relative;
   background: #151414;
-}
-
-@keyframes fadeOut{
-  100% {
-    width: 0;
-    opacity: 0;
-  }
+  overflow-x: hidden;
 }

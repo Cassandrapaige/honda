@@ -18,9 +18,9 @@ margin-bottom: 10px;
 export const ListContainer = styled.ul`
 list-style-type: none;
 
-@media(max-width: 600px) {
-    display: none;
-}
+// @media(max-width: 600px) {
+//     display: none;
+// }
 `
 
 export const ListItem = styled.li`

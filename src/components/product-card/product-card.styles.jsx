@@ -4,7 +4,7 @@ import {colors, easings} from '../../constants/styles'
 export const ProductCardContainer = styled.div`
 color: ${colors.text};
 background: ${colors.secondary};
-box-shadow: 0px 2px 2px rgba(18, 18, 18, .8);
+// box-shadow: 0px 2px 2px rgba(18, 18, 18, .8);
 
 &:hover button{
     background: ${colors.complimentary};
@@ -14,6 +14,7 @@ box-shadow: 0px 2px 2px rgba(18, 18, 18, .8);
 
 export const ProductImage = styled.div`
 position: relative;
+min-height: 200px;
 
 img {
     width: 100%;

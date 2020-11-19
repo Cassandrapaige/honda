@@ -60,7 +60,9 @@ const CartItem = ({cartItem}) => {
             </GridSectionContainer>
             <GridSectionContainer rightAligned = "true">
                 <span>{getLocaleNum(cartTotal, exchangeRate, currency)}</span>
-                <ControlButton onClick = {() => removeItem(cartItem)}> <img src={trash} alt="move to trash icon" /> </ControlButton>
+                <ControlButton onClick = {() => removeItem(cartItem)}> 
+                    <img src={trash} alt="move to trash icon" /> 
+                </ControlButton>
             </GridSectionContainer>
         </CartItemContainer>
     )

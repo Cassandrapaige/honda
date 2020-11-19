@@ -45,7 +45,7 @@ const CurrencyDropdown = () => {
                 <ImageContainer>
                     <img src={_CURRENCY_DATA[currency].flag} alt="national flag" />
                 </ImageContainer>
-                <Text>{currency} Currency</Text>
+                <Text>{currency} <span>Currency</span></Text>
             </DropdownButton>
             <DropdownListContainer style= {props}>
                 <DropdownList>

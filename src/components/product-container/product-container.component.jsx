@@ -8,7 +8,7 @@ import {useAppState} from '../../providers/app.provider'
 import {ProductGridContainer} from './product-container.styles'
 import FadeInContainer from '../fade-in-container/fade-in-container.component'
 
-const ProductContainer = () => {
+const ProductContainer = ({...rest}) => {
     const [{inventory}] = useAppState();
 
     return (
@@ -18,7 +18,7 @@ const ProductContainer = () => {
                 {
                     inventory.map(product => (
                         <FadeInContainer>
-                            <ProductCard product = {product}/>
+                            <ProductCard product = {product} {...rest}/>
                         </FadeInContainer>
                     ))
                 }

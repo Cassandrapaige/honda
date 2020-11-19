@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import {ProductCardContainer,
         ProductImage, 
@@ -12,10 +12,13 @@ import OverlayContainer from '../overlay-container/overlay-container.component'
 import Text from '../text/text.component'
 
 import {useAppState} from '../../providers/app.provider'
+import useObserver from '../../hooks/useObserver'
 
 import {getLocaleNum} from '../../utils'
 
 const ProductCard = ({product}) => {
+    const [isVisible, domRef] = useObserver();
+
     const [{currency, exchangeRate}, dispatch] = useAppState();
 
     const addToCart = item => {
@@ -31,7 +34,7 @@ const ProductCard = ({product}) => {
     return (
         <ProductCardContainer>
             <ProductImage>
-                <img src={product.image} alt={product.model}/>
+                <img src={isVisible && product.image} ref={domRef} alt={product.model}/>
                 <OverlayContainer />
             </ProductImage>
 
