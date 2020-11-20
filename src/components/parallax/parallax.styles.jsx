@@ -12,6 +12,10 @@ background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
 background-position: center;
+
+@media(max-width: 800px) {
+    background-attachment: scroll;
+}
 `
 
 export const ParallaxContent = styled.div`

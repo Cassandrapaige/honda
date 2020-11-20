@@ -4,6 +4,7 @@ export const colors = {
     complimentary: '#1c1a1a',
     accent: '#D60C19',
     text: '#c0c0c0',
+    contrast: '#c0c0c0',
     overlay: percent => `rgba(18, 18, 18, ${percent})`
 }
 

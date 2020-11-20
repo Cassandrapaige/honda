@@ -3,9 +3,14 @@ import {animated} from 'react-spring'
 import {colors} from '../../constants/styles'
 
 export const CarosuelContainer = styled.section`
+position: relative;
+max-width: 1100px;
+margin: auto;
+
 @media(max-width: 800px) {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 `
 
@@ -16,12 +21,6 @@ min-height: 550px;
 height: 100%;
 overflow-x: hidden;
 overflow-y: visible;
-
-@media(max-width: 800px) {
-  margin-top: 50px;
-  background: ${colors.secondary};
-  padding: 10px;
-}
 `
 
 export const Slide = styled(animated.div)`
@@ -38,6 +37,9 @@ grid-template-rows: 500px;
 @media(max-width: 800px) {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 `
 
@@ -72,7 +74,7 @@ height: 100%;
 object-fit: contain;
 
 @media(max-width: 800px) {
-  width: 70%;
+  width: 80%;
   margin: auto;
 }
 `
@@ -80,10 +82,11 @@ object-fit: contain;
 export const ProgressBarsWrapper = styled.div`
 display: flex;
 justify-content: space-between;
-padding: 50px 0;
 
 @media(max-width: 800px) {
   order: 2;
+  padding: 0;
+  margin-bottom: 80px;
 }
 `
 

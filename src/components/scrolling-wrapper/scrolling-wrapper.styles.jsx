@@ -3,7 +3,8 @@ import {colors} from '../../constants/styles'
 
 export const ScrollingContainer = styled.section`
 position: relative;
-padding-top: 50px;
+max-width: 1100px;
+margin: auto;
 `
 
 export const Arrow = styled.div`
@@ -50,6 +51,7 @@ gap: 30px;
 overflow-x: hidden;
 overflow-y: hidden;
 scrollbar-width: none;
+padding: 20px 0;
 
 @media(max-width: 900px) {
     grid-template-columns: 1fr;

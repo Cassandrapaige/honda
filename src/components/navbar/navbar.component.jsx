@@ -30,7 +30,7 @@ const Navbar = ({...rest}) => {
             <Links>
             {
                 LINKS.map(link => (
-                    <NavLink to = {link.href} key = {link.id}  cta = {link.cta}>{link.text}</NavLink>
+                    <NavLink to = {link.href} key = {link.id}  cta = {link.cta} {...rest}>{link.text}</NavLink>
                 ))
             }
                 <CurrencyDropdown/>

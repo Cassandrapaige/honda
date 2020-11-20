@@ -18,7 +18,7 @@ const Gallery = () => {
                         <img src = {product.image} alt = {product.name} />
                         <OverlayContainer style= {styles.overlay}>
                             <AccentTitle>{product.name}</AccentTitle>
-                            <Title>{product.year}</Title>
+                            <h2>{product.year}</h2>
                         </OverlayContainer>
                     </ImageContainer>
                 ))

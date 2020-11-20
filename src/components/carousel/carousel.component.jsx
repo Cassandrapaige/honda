@@ -50,6 +50,7 @@ const Carousel = ({children, data, ...rest}) => {
     const completed = slide => slide.id !== activeLink && slide.id < activeLink;
 
     return (
+    <>
    <Container {...rest}>
    <CarosuelContainer>
         <ProgressBarsWrapper>
@@ -86,6 +87,7 @@ const Carousel = ({children, data, ...rest}) => {
       </SlideContainer>
       </CarosuelContainer>
     </Container>
+    </>
     )
 }
 

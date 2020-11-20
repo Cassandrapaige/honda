@@ -31,7 +31,7 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 min-height: 50%;
-color: ${colors.text};
+color: ${colors.contrast};
 flex-grow: 1;
 
 h2 {
@@ -68,8 +68,9 @@ transition: all .5s ease;
 bottom: 0;
 
 ${({hovered}) => hovered && css`
-transform: translateY(0);
-background: ${colors.text};`
+  transform: translateY(0);
+  color: ${colors.primary};
+  background: ${colors.text};`
 }
 
 @media(max-width: 900px) {
@@ -85,7 +86,7 @@ opacity: 0;
 transition: all .2s ease;
 
 ${({hovered}) => hovered && css`
-opacity: 1;
+  opacity: 1;
 `}
 
 @media(max-width: 900px) {
@@ -127,21 +128,20 @@ outline: none;
 padding: 20px;
 font-size: 1.2rem;
 font-weight: 100;
-background: #1c1a1a;
-color: #f0f0f0;
+background: ${colors.complimentary};
+color: ${colors.text};
 cursor: pointer;
 transition: all .3s ease;
 
 ${({hovered}) => hovered && css`
   background: ${colors.text};
   color: ${colors.primary};
+  border-top: 1px solid ${colors.primary};
 `}
 
 @media(max-width: 900px) {
   background: ${colors.complimentary};
   color: ${colors.text};
-  font-size: 1em;
-  padding: 16px;
   font-weight: 400;
 }
 `

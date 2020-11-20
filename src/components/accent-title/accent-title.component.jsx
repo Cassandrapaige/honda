@@ -3,7 +3,7 @@ import {useSpring, config} from 'react-spring'
 
 import { Title, Strike } from './accent-title.styles'
 
-const AccentTitle = ({children}) => {
+const AccentTitle = ({children, heading}) => {
     const props = useSpring({
         from : {
             opacity: 0,
@@ -15,12 +15,12 @@ const AccentTitle = ({children}) => {
         },
         config: config.wobbly,
         duration: 500,
-        delay: 1000
+        delay: !heading && 1000
     });
 
     return (
-        <Title>
-            <Strike style = {props} />
+        <Title heading = {heading}>
+            <Strike style = {props} heading = {heading}/>
             {children}
         </Title>
     )

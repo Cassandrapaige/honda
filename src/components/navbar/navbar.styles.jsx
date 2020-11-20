@@ -5,7 +5,7 @@ import {colors} from '../../constants/styles'
 export const NavbarContainer = styled.nav`
 z-index: 500;
 position: fixed;
-background: ${({active}) => active ? `${colors.primary}` : 'transparent'};
+background: ${({active}) => active ? `${colors.secondary}` : 'transparent'};
 width: 100%;
 top: 0;
 display: flex;
@@ -34,7 +34,7 @@ align-items: center;
 export const NavLink = styled(Link)`
 text-decoration: none;
 margin: 0 12px;
-color: ${colors.text};
+color: ${({active}) => active ? `${colors.text}` : `${colors.contrast}`};
 font-size: 1.1rem;
 position: relative;
 font-weight: 300;

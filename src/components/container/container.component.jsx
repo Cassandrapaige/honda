@@ -4,15 +4,16 @@ import Text from '../text/text.component';
 import FadeInContainer from '../fade-in-container/fade-in-container.component'
 
 import {ContentWrapper, HeaderInfo, Title} from './container.styles';
+import AccentTitle from '../accent-title/accent-title.component';
 
 const Container = ({title, text, children}) => (
     <ContentWrapper>
-        <FadeInContainer>
-            <HeaderInfo>
-                <Title>{title}</Title>
+        <HeaderInfo>
+            <FadeInContainer>
+                <AccentTitle heading>{title}</AccentTitle>
                 <Text>{text}</Text>
-            </HeaderInfo>
-        </FadeInContainer>
+            </FadeInContainer>
+        </HeaderInfo>
         {children}
     </ContentWrapper>
 )

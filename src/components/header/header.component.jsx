@@ -28,15 +28,14 @@ const Header = () => {
 
     const transitions = useTransition(SLIDES[activeLink], item => item.id, {
         from: {
-            opacity: 0,
+            visibility: `hidden`
         },
         enter: {
-            opacity: 1
+            visibility: `visible`
         },
         leave: {
-            opacity: 0
-        },
-        config: config.default
+            visibility: `hidden`
+        }    
     })
 
     return (
