@@ -1,6 +1,12 @@
-## Honda Canada (Mock site/ design)
+# Honda Canada (Mock site/ design)
 
 **I built this project as a way to get comfortable using Reacts Context API and local storage. It uses the Exchange Rate API and saves the users currency preference in a universal state reducer along with their selected cart items.**
+
+## Live Site
+
+View the live verson [here](https://honda-app.netlify.app/).
+
+![Image of website homepage in laptop png](./public/images/honda.png)
 
 ## Tech Stack 
 
@@ -18,7 +24,5 @@ I wanted to create this project from scratch, without the use of any added libra
 
 I also found the concept of creating custom hooks a little daunting before the start of this project, so I used this application as a playground to get more comfortable with extracting logic into custom hooks to make component compisition more accessible.
 
-## Live Site
-
-View the live verson [here](https://honda-app.netlify.app/).
-
+![Top half of website screenshot](./public/images/honda-top.png)
+![Bottom half of website screenshot](./public/images/honda-bottom.png)
