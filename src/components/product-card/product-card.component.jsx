@@ -34,7 +34,7 @@ const ProductCard = ({product}) => {
     return (
         <ProductCardContainer>
             <ProductImage>
-                <img src={isVisible && product.image} ref={domRef} alt={product.model}/>
+                <img src={isVisible ? product.image : undefined} ref={domRef} alt={product.model}/>
                 <OverlayContainer />
             </ProductImage>
 

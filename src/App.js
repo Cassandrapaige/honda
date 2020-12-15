@@ -18,7 +18,7 @@ const App = () => {
      <AppStateProvider>
       <BrowserRouter>
         <div className="App">
-          <Navbar active = {scrollY === null || scrollY > 200}/>
+          <Navbar active = {scrollY === null || scrollY > 200 ? "true" : "false"}/>
           <ShoppingCart/>
           <Switch>
               <Route exact path = '/' component = { Homepage } />

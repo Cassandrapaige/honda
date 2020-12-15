@@ -48,10 +48,11 @@ grid-template-columns: ${({slideNum, inView}) =>
     `repeat(${slideNum}, calc((100% / ${inView}) - 20px))`};
 gap: 30px;
 -webkit-overflow-scrolling: touch;
-overflow-x: hidden;
+overflow-x: scroll;
 overflow-y: hidden;
 scrollbar-width: none;
 padding: 20px 0;
+scroll-snap-type: x mandatory;
 
 @media(max-width: 900px) {
     grid-template-columns: 1fr;

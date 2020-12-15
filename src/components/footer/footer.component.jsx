@@ -35,7 +35,7 @@ const Footer = () => {
             <LinkContainer>
                 {
                     links.map((link, index) => (
-                        <LinkItem>
+                        <LinkItem key = {index}>
                             <i className={link.icon}></i> 
                             <span>{link.label}</span>
                         </LinkItem>
@@ -63,7 +63,7 @@ const shop_nav = [
 ];
 
 const about_nav = [
-"Contact Cs",
+"Contact",
 "Accessibility",
 "Compliance and Ethics",
 "Honda in Canada",

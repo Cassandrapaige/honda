@@ -3,6 +3,7 @@ import {colors} from '../../constants/styles'
 
 export const ProductContainer = styled.section`
 box-shadow: 0px 2px 4px rgba(18, 18, 18, .4);
+scroll-snap-align: start;
 `
 
 export const ProductContainerInner = styled.div`

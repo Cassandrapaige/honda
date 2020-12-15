@@ -50,7 +50,7 @@ const Header = () => {
                             <AccentTitle>{item.tagline}</AccentTitle>
                         </Animated>
                         <Animated delay = ".5">
-                            <Title isHeading>{item.title}</Title>                       
+                            <Title isHeading = "true">{item.title}</Title>                       
                         </Animated>
                         <Animated delay = "1">
                             <CtaButton text = {item.btn} />

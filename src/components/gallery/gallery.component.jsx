@@ -12,8 +12,8 @@ const Gallery = () => {
     return (
         <GalleryContainer>
             {
-                DATA.map(product => (
-                    <ImageContainer spanTwo = {product.span}>
+                DATA.map((product, index) => (
+                    <ImageContainer key = {index} spanTwo = {product.span}>
                         <img src = {product.image} alt = {product.name} />
                         <OverlayContainer style= {styles.overlay}>
                             <AccentTitle>{product.name}</AccentTitle>

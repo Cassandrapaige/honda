@@ -38,8 +38,6 @@ const ShoppingCart = () => {
         })
     }
 
-    console.log(cartItems)
-
     return transitions.map(({ item, props }) => item && (
         <Fragment>
             <CartContainer style= {props} >

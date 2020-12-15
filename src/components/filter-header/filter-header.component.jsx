@@ -3,7 +3,6 @@ import React, {Fragment, useRef} from 'react'
 import {FilterHeaderContainer, FilterMenuItem} from './filter-header.styles'
 
 import {useAppState} from '../../providers/app.provider'
-import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component';
 
 const FilterHeader = () => {
     const [{active}, dispatch] = useAppState();

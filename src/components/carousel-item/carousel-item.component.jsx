@@ -31,9 +31,9 @@ const CarouselItem = ({data}) => {
                 alt = "image of honda vehicle"/>
             <FeaturesList hovered = {isHovered}>
                 {
-                    data.features.map(feature => (
+                    data.features.map((feature, index) => (
                         <FeaturedItem 
-                            key = {feature.id}>
+                            key = {index}>
                             {feature}
                         </FeaturedItem>
                     ))

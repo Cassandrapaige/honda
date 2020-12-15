@@ -15,6 +15,7 @@ import CurrencyDropdown from '../currency-dropdown/currency-dropdown.component'
 
 const Navbar = ({...rest}) => {
     const [{quantity}, dispatch] = useAppState();
+    const activeLink = 0;
 
     const toggleCartHidden = () => {
         dispatch({
@@ -29,8 +30,8 @@ const Navbar = ({...rest}) => {
             </Logo>
             <Links>
             {
-                LINKS.map(link => (
-                    <NavLink to = {link.href} key = {link.id}  cta = {link.cta} {...rest}>{link.text}</NavLink>
+                LINKS.map((link, index) => (
+                    <NavLink to = {link.href} key = {link.id}  cta = {index === activeLink ? "true" : undefined} {...rest}>{link.text}</NavLink>
                 ))
             }
                 <CurrencyDropdown/>
@@ -49,31 +50,26 @@ const LINKS = [
         id: 0,
         text: 'Build',
         href: '/',
-        cta: true
     },
     {
         id: 1,
         text: 'Models',
         href: '/',
-        cta: false
     },
     {
         id: 2,
         text: 'Shopping Tools',
         href: '/',
-        cta: false
     },
     {
         id: 3,
         text: 'Owners',
         href: '/',
-        cta: false
     },
     {
         id: 4,
         text: 'Certified Used',
         href: '/',
-        cta: false
     },
 ]
 
