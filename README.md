@@ -23,6 +23,3 @@ By combining Context API with a reducer, we were able to create a global store f
 I wanted to create this project from scratch, without the use of any added libraries so I spent a good amount of time creating the custom carousels and scroll animations. 
 
 I also found the concept of creating custom hooks a little daunting before the start of this project, so I used this application as a playground to get more comfortable with extracting logic into custom hooks to make component compisition more accessible.
-
-![Top half of website screenshot](./public/images/honda-top.png)
-![Bottom half of website screenshot](./public/images/honda-bottom.png)
