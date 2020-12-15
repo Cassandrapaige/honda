@@ -14,7 +14,7 @@ import {HeaderWrapper, SlideContainer} from './header.styles'
 import useCarousel from '../../hooks/useCarousel'
 import useObserver from '../../hooks/useObserver';
 
-const { headerImage2, headerImage3 } = images;
+const { headerImage5, headerImage2, headerImage3 } = images;
 
 
 const Header = () => {
@@ -79,7 +79,7 @@ const styles = {
 const SLIDES = [
     {
         id: 0,
-        img: 'https://www.autocar.co.uk/sites/autocar.co.uk/files/styles/gallery_slide/public/images/car-reviews/first-drives/legacy/99-honda-civic-type-r-sport-line-2020-press-front.jpg?itok=k0vk4jby',
+        img: headerImage5,
         tagline: "Canadian built.",
         title: "Canadian Driven.",
         btn: "Shop Now"

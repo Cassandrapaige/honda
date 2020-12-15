@@ -14,6 +14,11 @@ import DropdownButton from '../dropdown-button/dropdown-button.component'
 import {useCurrency} from '../../hooks/useCurrency';
 import {useAppState} from '../../providers/app.provider'
 
+import cadFlag from '../../images/cad-flag.webp'
+import usaFlag from '../../images/usa-flag.webp'
+import gbpFlag from '../../images/gbp-flag.webp'
+import eurFlag from '../../images/eur-flag.webp'
+
 const CurrencyDropdown = () => {
     const [isVisible, setIsVisible] = useState(false);
     const money = useCurrency();
@@ -71,22 +76,22 @@ const CurrencyDropdown = () => {
 const _CURRENCY_DATA = {
     "CAD": {
         currency: "CAD",
-        flag: "https://cdn.countryflags.com/thumbs/canada/flag-round-500.png",
+        flag: cadFlag,
         nationality: "Canadian"
     },
     "USD": {
         currency: "USD",
-        flag: "https://cdn.countryflags.com/thumbs/united-states-of-america/flag-round-500.png",
+        flag: usaFlag,
         nationality: "American"
     },
     "GBP": {
         currency: "GBP",
-        flag: "https://cdn.countryflags.com/thumbs/united-kingdom/flag-round-500.png",
+        flag: gbpFlag,
         nationality: "British"
     },
     "EUR": {
         currency: "EUR",
-        flag: "https://cdn.countryflags.com/thumbs/european-union/flag-round-500.png",
+        flag: eurFlag,
         nationality: "European"
     }
 }

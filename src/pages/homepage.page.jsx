@@ -27,8 +27,8 @@ const Homepage = () => {
                 slideNum = {ANIMATED_PRODUCT_CARD_DATA.length} 
                 inView = '2'>
                 {
-                    ANIMATED_PRODUCT_CARD_DATA.map(el => (
-                        <CarouselItem data = {el} />
+                    ANIMATED_PRODUCT_CARD_DATA.map((el, index) => (
+                        <CarouselItem data = {el} key = {index}/>
                     ))
                 }
             </ScrollingWrapper>

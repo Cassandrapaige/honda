@@ -16,9 +16,9 @@ const ProductContainer = ({...rest}) => {
             <FilterHeader />
                 <ProductGridContainer>
                 {
-                    inventory.map(product => (
+                    inventory.map((product, index) => (
                         <FadeInContainer>
-                            <ProductCard product = {product} {...rest}/>
+                            <ProductCard product = {product} key = {index} {...rest}/>
                         </FadeInContainer>
                     ))
                 }
