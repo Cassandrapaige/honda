@@ -2,12 +2,11 @@ import React from 'react'
 import { images } from '../../constants/images'
 
 import OverlayContainer from '../overlay-container/overlay-container.component'
-import Title from '../title/title.component'
 import AccentTitle from '../accent-title/accent-title.component'
 
 import {GalleryContainer, ImageContainer} from './gallery.styles'
 
-const { headerImage1, headerImage2, headerImage3 } = images;
+const { headerImage1, headerImage2, headerImage3, headerImage4 } = images;
 
 const Gallery = () => {
     return (
@@ -47,7 +46,7 @@ const DATA = [
     },
     {
         id: 1,
-        image: 'https://automobiles.honda.com/-/media/Honda-Automobiles/Vehicles/2020/Civic-Si-Coupe/NON-VLP/Civic-Family-Page/Civic_Family_Hero_Mobile_375.jpg%202x',
+        image: headerImage4,
         name: 'Civic Coupe Si',
         year: '2021',
         span: false,

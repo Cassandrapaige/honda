@@ -1,18 +1,17 @@
 import React from 'react'
-import { useTransition, config } from 'react-spring'
+import { useTransition } from 'react-spring'
 import { images } from '../../constants/images'
-
-import useCarousel from '../../hooks/useCarousel'
 
 import AccentTitle from '../accent-title/accent-title.component'
 import OverlayContainer from '../overlay-container/overlay-container.component'
 import SliderControls from '../slider-controls/slider-controls.component'
 import Animated from '../animate/animate.component'
 import Title from '../title/title.component'
-
-import {HeaderWrapper, SlideContainer} from './header.styles'
 import CtaButton from '../cta-button/cta-button.component'
 
+import {HeaderWrapper, SlideContainer} from './header.styles'
+
+import useCarousel from '../../hooks/useCarousel'
 import useObserver from '../../hooks/useObserver';
 
 const { headerImage2, headerImage3 } = images;

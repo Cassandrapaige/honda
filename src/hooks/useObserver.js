@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 
-const useObserver = (playAnimationIfVisible) => {
+const useObserver = playAnimationIfVisible => {
     const [isVisible, setIsVisible] = useState(false);
     const domRef = useRef();
 
@@ -9,9 +9,13 @@ const useObserver = (playAnimationIfVisible) => {
 
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
+
+                // Begin animation every time item's in view
                 if(playAnimationIfVisible) {
                     setIsVisible(entry.isIntersecting);
                 }
+
+                // Only play animation once, when first scrolled into view
                 else if(!isVisible) {
                     setIsVisible(entry.isIntersecting);
                 }
