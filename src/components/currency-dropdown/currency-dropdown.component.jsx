@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSpring, config } from "react-spring";
 
 import {
@@ -32,10 +32,6 @@ const CurrencyDropdown = () => {
       currency: type.currency,
     });
   };
-
-  useEffect(() => {
-    console.log(money);
-  });
 
   const props = useSpring({
     to: {

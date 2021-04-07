@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./App.scss";
@@ -15,14 +14,6 @@ import { AppStateProvider } from "./providers/app.provider";
 const App = () => {
   const scrollY = useScroll();
 
-  useEffect(() => {
-    axios
-      .get(
-        `http://api.exchangeratesapi.io/v1/latest?access_key=81d619c479cae2d306db105373d60153&symbols=USD,GBP,EUR,CAD`
-      )
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
-  }, []);
   return (
     <AppStateProvider>
       <BrowserRouter>
